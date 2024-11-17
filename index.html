@@ -1,1433 +1,202 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Simon - Welcome</title><meta name="author" content="Simon Gao"><meta name="copyright" content="Simon Gao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="I hope you can learn something">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Simon">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Simon">
+<meta property="og:description" content="I hope you can learn something">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="Simon Gao">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
-
-<link rel="canonical" href="http://example.com/">
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo</title>
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
 
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
 
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-</header>
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
         
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">68</span>
-          <span class="site-state-item-name">posts</span>
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Simon',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Simon</span></a></span><div id="menus"></div></nav><h1 class="title-seo">Simon</h1></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover"><a href="/2024/11/15/how-should-we-see-north-koreans-in-biblical-perspective/" title="How should we see North Koreans in biblical perspective"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="How should we see North Koreans in biblical perspective"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/15/how-should-we-see-north-koreans-in-biblical-perspective/" title="How should we see North Koreans in biblical perspective">How should we see North Koreans in biblical perspective</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-16T01:48:06.000Z" title="Created 2024-11-15 20:48:06">2024-11-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Belief/">Belief</a></span></div><div class="content">Viewing North Korea from a biblical perspective requires us to apply biblical principles of justice, compassion, hope, and the sovereignty of God to the unique situation of the nation. Here are some key themes to consider:  1. Recognizing the Image of God in Every Person Biblical Principle: “So God created man in his own image, in the image of God he created him; male and female he created them.” (Genesis 1:27, ESV)“于是神照着自己的形象造人，乃是照着他的形象造男造女。” (创世记 1:27, 新标点和合本)   Every North Korean,...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/2024/11/12/jin-yongs-philosophy/" title="Jin Yong’s philosophy"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jin Yong’s philosophy"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/12/jin-yongs-philosophy/" title="Jin Yong’s philosophy">Jin Yong’s philosophy</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-13T01:31:11.000Z" title="Created 2024-11-12 20:31:11">2024-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B8%AA%E4%BA%BA%E8%A7%81%E8%A7%A3/">个人见解</a></span></div><div class="content">Jin Yong’s works often feature characters who resist oppressive regimes, challenge corruption, and stand against unjust authority figures. This recurring theme reflects both the social and political climate of Hong Kong during his writing period, as well as Jin Yong’s personal values and philosophies. 1. The Political Climate of Hong KongJin Yong wrote his novels between the 1950s and 1970s, when Hong Kong was a British colony. The Chinese population in Hong Kong lived under British rule,...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/2024/11/07/dependency-inversion-principle-dip/" title="Dependency Inversion Principle, DIP"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Dependency Inversion Principle, DIP"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/07/dependency-inversion-principle-dip/" title="Dependency Inversion Principle, DIP">Dependency Inversion Principle, DIP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-08T00:31:02.000Z" title="Created 2024-11-07 19:31:02">2024-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">在 SOLID 原则中，D 代表 依赖倒置原则（Dependency Inversion Principle,...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/2024/11/07/interface-segregation-principle-isp/" title="Interface Segregation Principle, ISP"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Interface Segregation Principle, ISP"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/07/interface-segregation-principle-isp/" title="Interface Segregation Principle, ISP">Interface Segregation Principle, ISP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-08T00:30:53.000Z" title="Created 2024-11-07 19:30:53">2024-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">在 SOLID 原则中，I 代表 接口隔离原则（Interface Segregation Principle, ISP）。这个原则强调接口设计的简洁性，避免在接口中添加过多的、不必要的方法，使得接口更加专注于特定的职责，以便让实现接口的类只需要关注其使用的特定功能。 接口隔离原则的核心思想接口隔离原则的核心思想是，应该为不同的客户端提供专用的接口，而不是强迫所有的客户端都依赖一个通用的接口。简单来说，接口应该小而精，并且专注于满足客户端的需求，而不是试图将所有方法都放在一个庞大的接口中。 原则要点 小接口比大接口好：接口不应包含太多方法。小的接口意味着接口更加专一，客户端不必依赖那些与它们无关的方法。  接口应该只包含客户端需要的方法：接口隔离原则主张使用多个小的接口，而不是一个庞大的通用接口，这样可以让实现接口的类只实现自己需要的功能，而不必实现不相关的方法。  避免接口污染（Fat Interface）：如果一个接口包含了过多的方法，那些不需要的客户端就会受到影响。这种接口被称为“臃肿的接口（Fat...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/2024/11/07/dao/" title="DAO"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DAO"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/07/dao/" title="DAO">DAO</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-08T00:30:09.000Z" title="Created 2024-11-07 19:30:09">2024-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">DAO（Data Access...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/2024/11/07/jdbc%EF%BC%88java-database-connectivity%EF%BC%89/" title="JDBC（Java Database Connectivity）"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JDBC（Java Database Connectivity）"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/07/jdbc%EF%BC%88java-database-connectivity%EF%BC%89/" title="JDBC（Java Database Connectivity）">JDBC（Java Database Connectivity）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-08T00:29:52.000Z" title="Created 2024-11-07 19:29:52">2024-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">JDBC（Java Database Connectivity） 是 Java 提供的一个用于访问和操作数据库的 API（应用程序编程接口），它使得 Java 程序可以与各种关系型数据库（如 MySQL、PostgreSQL、Oracle、SQL Server 等）进行交互。通过 JDBC，Java 应用程序可以执行 SQL 查询、更新数据库数据、调用存储过程、管理事务等。 JDBC 是 Java 标准库的一部分，它提供了一个通用接口，使得开发者能够以一种标准的方式连接数据库，无需关心底层数据库的具体实现细节。不同的数据库厂商（如 MySQL、Oracle）会为 JDBC 提供各自的驱动程序，Java 程序通过这些驱动程序与数据库进行交互。  JDBC 的核心组成JDBC 的架构由以下几个核心组件组成：  DriverManagerDriverManager 类负责管理不同的数据库驱动，Java 程序通过它来注册和连接数据库驱动。DriverManager 会根据提供的数据库 URL 找到合适的驱动来建立连接。  ConnectionConnection...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/2024/11/07/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8Cweb%E7%9A%84%E6%9D%83%E9%99%90/" title="客户端和web的权限"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="客户端和web的权限"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/11/07/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8Cweb%E7%9A%84%E6%9D%83%E9%99%90/" title="客户端和web的权限">客户端和web的权限</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-08T00:29:28.000Z" title="Created 2024-11-07 19:29:28">2024-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">是的，客户端应用通常确实会比 Web 端应用拥有更多的权限。以下是一些主要原因： 1. 系统资源的直接访问 客户端应用通常可以直接访问本地系统资源，例如文件系统、摄像头、麦克风、地理位置、蓝牙、USB 接口等。而 Web 端应用的权限通常受到浏览器的限制，尽管现代浏览器提供了部分接口（如 getUserMedia、Geolocation API），这些权限的范围和灵活性远不如客户端应用。  2. 本地存储 客户端应用可以使用各种本地存储技术（如文件系统、数据库、加密存储），并且可以在不受浏览器沙盒限制的情况下自由读写。而 Web 应用在本地存储方面，通常只能使用 localStorage、sessionStorage 或者 IndexedDB，并且受到浏览器的存储大小限制。  3. 后台运行 客户端应用通常可以在系统后台运行，甚至在关闭窗口或用户注销时继续执行任务。而 Web 应用在浏览器窗口关闭后就会被中止，即使有一些 PWA（渐进式 Web 应用）和 Web Workers 支持后台任务，其运行能力和系统整合性也有限。  4....</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/2024/10/22/supervised-learning%E5%92%8Cunsupervised/" title="Supervised Learning和Unsupervised"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Supervised Learning和Unsupervised"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/10/22/supervised-learning%E5%92%8Cunsupervised/" title="Supervised Learning和Unsupervised">Supervised Learning和Unsupervised</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-10-22T23:46:36.000Z" title="Created 2024-10-22 19:46:36">2024-10-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">Supervised Learning: Regression 和 Unsupervised Learning 的主要区别在于数据是否有标签以及任务目标不同。 1. Supervised Learning: Regression（监督学习：回归）监督学习中的回归是指算法从带有标签的数据中学习，目标是预测连续的数值输出。例如，给定一些输入数据，系统需要预测一个连续的值，如房价、温度、收入等。  数据特点：在回归问题中，训练数据集包含输入特征（features）和对应的已知目标值（标签）。  例如，房价预测问题中，输入特征可能是房子的面积、房间数量、位置等，目标值是房子的价格。   任务目标：回归任务的目标是建立一个模型，能够根据新的输入数据预测其对应的连续数值。  举例：预测未来几天的股票价格或某个客户在未来的消费金额。   常用算法：  线性回归（Linear Regression） 多项式回归（Polynomial Regression） 支持向量回归（Support Vector Regression,...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/2024/10/21/%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5/" title="混淆矩阵"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="混淆矩阵"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/10/21/%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5/" title="混淆矩阵">混淆矩阵</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-10-22T01:10:10.000Z" title="Created 2024-10-21 21:10:10">2024-10-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">Confusion Matrix（混淆矩阵）是用于评价分类模型性能的一个工具，特别是当模型的输出是多个类时。它通过显示实际类与预测类的对比来描述模型的预测结果。混淆矩阵是一种矩阵，行表示实际类别，列表示预测类别。它能够帮助评估模型的正确分类和错误分类。 混淆矩阵的结构：通常，混淆矩阵应用于二分类问题，矩阵形式如下： 预测正类（Positive） 预测负类（Negative） 实际正类 真阳性（TP） 假阴性（FN） 实际负类 假阳性（FP） 真阴性（TN） 矩阵中的四个重要指标： **TP (True Positive)**：模型正确预测为正类的数量（预测为正，实际也是正）。 **TN (True Negative)**：模型正确预测为负类的数量（预测为负，实际也是负）。 **FP (False Positive)**：模型错误预测为正类的数量（预测为正，实际为负），即“假阳性”。 **FN (False Negative)**：模型错误预测为负类的数量（预测为负，实际为正），即“假阴性”。  常用评价指标公式： **准确率...</div></div></div><div class="recent-post-item"><div class="post_cover"><a href="/2024/10/17/%EF%BC%88why-nations-fail%EF%BC%89-2/" title="（Why Nations Fail）"><img class="post-bg" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="（Why Nations Fail）"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/10/17/%EF%BC%88why-nations-fail%EF%BC%89-2/" title="（Why Nations Fail）">（Why Nations Fail）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-10-17T23:29:36.000Z" title="Created 2024-10-17 19:29:36">2024-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B8%AA%E4%BA%BA%E8%A7%81%E8%A7%A3/">个人见解</a></span></div><div class="content">《国家为何失败》  《国家为何失败》（_Why Nations Fail_）是由James Alan Robinson和达隆·阿西莫格鲁（Daron Acemoglu）合作撰写的一本深具影响力的书，首次出版于2012年。这本书试图回答一个贯穿历史和全球的根本问题：为什么有些国家能够繁荣发展，而另一些国家却长期陷入贫困和动荡？  核心理论：包容性制度 vs. 掠夺性制度书中的核心理论是**包容性制度（inclusive institutions）和掠夺性制度（extractive...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Simon Gao</div><div class="author-info-description">I hope you can learn something</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/15/how-should-we-see-north-koreans-in-biblical-perspective/" title="How should we see North Koreans in biblical perspective"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="How should we see North Koreans in biblical perspective"/></a><div class="content"><a class="title" href="/2024/11/15/how-should-we-see-north-koreans-in-biblical-perspective/" title="How should we see North Koreans in biblical perspective">How should we see North Koreans in biblical perspective</a><time datetime="2024-11-16T01:48:06.000Z" title="Created 2024-11-15 20:48:06">2024-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/12/jin-yongs-philosophy/" title="Jin Yong’s philosophy"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jin Yong’s philosophy"/></a><div class="content"><a class="title" href="/2024/11/12/jin-yongs-philosophy/" title="Jin Yong’s philosophy">Jin Yong’s philosophy</a><time datetime="2024-11-13T01:31:11.000Z" title="Created 2024-11-12 20:31:11">2024-11-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/07/dependency-inversion-principle-dip/" title="Dependency Inversion Principle, DIP"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Dependency Inversion Principle, DIP"/></a><div class="content"><a class="title" href="/2024/11/07/dependency-inversion-principle-dip/" title="Dependency Inversion Principle, DIP">Dependency Inversion Principle, DIP</a><time datetime="2024-11-08T00:31:02.000Z" title="Created 2024-11-07 19:31:02">2024-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/07/interface-segregation-principle-isp/" title="Interface Segregation Principle, ISP"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Interface Segregation Principle, ISP"/></a><div class="content"><a class="title" href="/2024/11/07/interface-segregation-principle-isp/" title="Interface Segregation Principle, ISP">Interface Segregation Principle, ISP</a><time datetime="2024-11-08T00:30:53.000Z" title="Created 2024-11-07 19:30:53">2024-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/07/dao/" title="DAO"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DAO"/></a><div class="content"><a class="title" href="/2024/11/07/dao/" title="DAO">DAO</a><time datetime="2024-11-08T00:30:09.000Z" title="Created 2024-11-07 19:30:09">2024-11-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/"><span class="card-category-list-name">AI</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Belief/"><span class="card-category-list-name">Belief</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/English/"><span class="card-category-list-name">English</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/uncategorized/"><span class="card-category-list-name">uncategorized</span><span class="card-category-list-count">36</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B8%AA%E4%BA%BA%E8%A7%81%E8%A7%A3/"><span class="card-category-list-name">个人见解</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="card-category-list-name">技术分享</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A7%91%E6%8A%80/"><span class="card-category-list-name">科技</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E6%8A%80%E8%83%BD/"><span class="card-category-list-name">程序员技能</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 1.1em; color: #999">AI</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
+      
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">November 2024</span>
+          <span class="card-archive-list-count">7</span>
         </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
-        <span class="site-state-item-name">categories</span>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
-</div>
-
-        </div>
-      </div>
-    </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/16/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/16/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-16 21:46:37" itemprop="dateCreated datePublished" datetime="2024-11-16T21:46:37-05:00">2024-11-16</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/15/how-should-we-see-north-koreans-in-biblical-perspective/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/15/how-should-we-see-north-koreans-in-biblical-perspective/" class="post-title-link" itemprop="url">How should we see North Koreans in biblical perspective</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-15 20:48:06" itemprop="dateCreated datePublished" datetime="2024-11-15T20:48:06-05:00">2024-11-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-16 22:12:33" itemprop="dateModified" datetime="2024-11-16T22:12:33-05:00">2024-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Belief/" itemprop="url" rel="index"><span itemprop="name">Belief</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Viewing North Korea from a <strong>biblical perspective</strong> requires us to apply biblical principles of justice, compassion, hope, and the sovereignty of God to the unique situation of the nation. Here are some key themes to consider:</p>
-<hr>
-<h3 id="1-Recognizing-the-Image-of-God-in-Every-Person"><a href="#1-Recognizing-the-Image-of-God-in-Every-Person" class="headerlink" title="1. Recognizing the Image of God in Every Person"></a>1. <strong>Recognizing the Image of God in Every Person</strong></h3><ul>
-<li><strong>Biblical Principle</strong>:<ul>
-<li><em>“So God created man in his own image, in the image of God he created him; male and female he created them.”</em> (Genesis 1:27, ESV)<br><em>“于是神照着自己的形象造人，乃是照着他的形象造男造女。”</em> (创世记 1:27, 新标点和合本)</li>
-</ul>
-</li>
-<li>Every North Korean, regardless of their circumstances or government system, is created in the image of God. This gives them inherent dignity and worth. Despite living under oppressive conditions, they are loved by God and deserve respect, compassion, and advocacy.</li>
-</ul>
-<hr>
-<h3 id="2-Responding-to-Oppression-and-Injustice"><a href="#2-Responding-to-Oppression-and-Injustice" class="headerlink" title="2. Responding to Oppression and Injustice"></a>2. <strong>Responding to Oppression and Injustice</strong></h3><ul>
-<li><strong>Biblical Principle</strong>:<ul>
-<li><em>“Give justice to the weak and the fatherless; maintain the right of the afflicted and the destitute.”</em> (Psalm 82:3, ESV)<br><em>“你们当为贫寒的人和孤儿伸冤，为困苦和穷乏的人施行公义。”</em> (诗篇 82:3, 新标点和合本)</li>
-</ul>
-</li>
-<li>The regime’s oppression, injustice, and lack of basic freedoms contrast sharply with biblical teachings on justice. Christians are called to be voices for the voiceless, advocating for the oppressed, and working toward justice.</li>
-</ul>
-<hr>
-<h3 id="3-Praying-for-Governments-and-Leaders"><a href="#3-Praying-for-Governments-and-Leaders" class="headerlink" title="3. Praying for Governments and Leaders"></a>3. <strong>Praying for Governments and Leaders</strong></h3><ul>
-<li><strong>Biblical Principle</strong>:<ul>
-<li><em>“First of all, then, I urge that supplications, prayers, intercessions, and thanksgivings be made for all people, for kings and all who are in high positions, that we may lead a peaceful and quiet life, godly and dignified in every way.”</em> (1 Timothy 2:1-2, ESV)<br><em>“我劝你第一要为万人恳求、祷告、代求、祝谢，为君王和一切在位的也该如此，使我们可以敬虔端正、平安无事地度日。”</em> (提摩太前书 2:1-2, 新标点和合本)</li>
-</ul>
-</li>
-<li>Christians are called to pray for the leaders of North Korea, even if their actions seem contrary to God’s will. Pray for their hearts to be softened, for wisdom to govern justly, and for the nation to experience peace and transformation.</li>
-</ul>
-<hr>
-<h3 id="4-Having-Compassion-for-the-Suffering"><a href="#4-Having-Compassion-for-the-Suffering" class="headerlink" title="4. Having Compassion for the Suffering"></a>4. <strong>Having Compassion for the Suffering</strong></h3><ul>
-<li><strong>Biblical Principle</strong>:<ul>
-<li><em>“If one member suffers, all suffer together; if one member is honored, all rejoice together.”</em> (1 Corinthians 12:26, ESV)<br><em>“若一个肢体受苦，所有的肢体就一同受苦；若一个肢体得荣耀，所有的肢体就一同快乐。”</em> (哥林多前书 12:26, 新标点和合本)</li>
-</ul>
-</li>
-<li>As part of the global church, we are spiritually connected to believers in North Korea who are suffering persecution. Christians should stand in solidarity, offering prayer, support, and advocacy.</li>
-</ul>
-<hr>
-<h3 id="5-Trusting-in-God’s-Sovereignty"><a href="#5-Trusting-in-God’s-Sovereignty" class="headerlink" title="5. Trusting in God’s Sovereignty"></a>5. <strong>Trusting in God’s Sovereignty</strong></h3><ul>
-<li><strong>Biblical Principle</strong>:<ul>
-<li><em>“The king’s heart is a stream of water in the hand of the Lord; he turns it wherever he will.”</em> (Proverbs 21:1, ESV)<br><em>“王的心在耶和华手中，好像陇沟的水，随意流转。”</em> (箴言 21:1, 新标点和合本)</li>
-</ul>
-</li>
-<li>Despite the hardships in North Korea, God is sovereign and able to bring change in His timing. Christians are called to trust in God’s ultimate plan and work faithfully while waiting for His intervention.</li>
-</ul>
-<hr>
-<h3 id="6-Proclaiming-the-Gospel"><a href="#6-Proclaiming-the-Gospel" class="headerlink" title="6. Proclaiming the Gospel"></a>6. <strong>Proclaiming the Gospel</strong></h3><ul>
-<li><strong>Biblical Principle</strong>:<ul>
-<li><em>“Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit.”</em> (Matthew 28:19, ESV)<br><em>“所以，你们要去，使万民作我的门徒，奉父、子、圣灵的名给他们施洗。”</em> (马太福音 28:19, 新标点和合本)</li>
-</ul>
-</li>
-<li>Sharing the Gospel is a command for all Christians. Though North Korea is one of the most difficult places for mission work, the Gospel remains a source of hope for the people there. Pray for opportunities for the Gospel to reach them and for the growth of the underground church.</li>
-</ul>
-<hr>
-<h3 id="7-Hope-for-Redemption"><a href="#7-Hope-for-Redemption" class="headerlink" title="7. Hope for Redemption"></a>7. <strong>Hope for Redemption</strong></h3><ul>
-<li><strong>Biblical Principle</strong>:<ul>
-<li><em>“He will wipe away every tear from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore, for the former things have passed away.”</em> (Revelation 21:4, ESV)<br><em>“神要擦去他们一切的眼泪，不再有死亡，也不再有悲哀、哭号、疼痛，因为以前的事都过去了。”</em> (启示录 21:4, 新标点和合本)</li>
-</ul>
-</li>
-<li>North Korea’s current suffering is not the end of the story. God’s kingdom promises a future where all suffering is wiped away. This provides hope and a reminder to work toward God’s justice while anticipating His ultimate renewal.</li>
-</ul>
-<hr>
-<h3 id="How-Should-We-Respond"><a href="#How-Should-We-Respond" class="headerlink" title="How Should We Respond?"></a>How Should We Respond?</h3><ol>
-<li><strong>Pray</strong> for North Korean leaders, the suffering people, and the spread of the Gospel.</li>
-<li><strong>Advocate</strong> for justice and human rights for the oppressed.</li>
-<li><strong>Support</strong> organizations that aid North Korean refugees and underground believers.</li>
-<li><strong>Trust</strong> in God’s timing and sovereignty over the nation.</li>
-</ol>
-<p>May we always seek God’s will in how we view and engage with North Korea, striving to show His love and justice in all things.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/12/jin-yongs-philosophy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/12/jin-yongs-philosophy/" class="post-title-link" itemprop="url">Jin Yong’s philosophy</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-12 20:31:11" itemprop="dateCreated datePublished" datetime="2024-11-12T20:31:11-05:00">2024-11-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-16 22:12:33" itemprop="dateModified" datetime="2024-11-16T22:12:33-05:00">2024-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%AA%E4%BA%BA%E8%A7%81%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">个人见解</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Jin Yong’s works often feature characters who resist oppressive regimes, challenge corruption, and stand against unjust authority figures. This recurring theme reflects both the social and political climate of Hong Kong during his writing period, as well as Jin Yong’s personal values and philosophies.</p>
-<h3 id="1-The-Political-Climate-of-Hong-Kong"><a href="#1-The-Political-Climate-of-Hong-Kong" class="headerlink" title="1. The Political Climate of Hong Kong"></a>1. The Political Climate of Hong Kong</h3><p>Jin Yong wrote his novels between the 1950s and 1970s, when Hong Kong was a British colony. The Chinese population in Hong Kong lived under British rule, with limited political rights and a notable wealth gap. While the colonial government offered relative stability, Hong Kong residents had no significant say in political matters. Jin Yong was acutely aware of these realities and focused on themes of justice and resistance, likely reflecting a desire for fairness and freedom within Hong Kong society.</p>
-<p>Furthermore, this period also coincided with significant political upheaval in mainland China, including the Cultural Revolution. Many people who were discontented with the situation in China fled to Hong Kong. Against this backdrop, a spirit of resistance and a longing for justice resonated strongly among intellectuals in Hong Kong, including Jin Yong. His works echo these sentiments, highlighting characters who embody the courage to challenge oppression.</p>
-<h3 id="2-Jin-Yong’s-Personal-Ideals-and-Values"><a href="#2-Jin-Yong’s-Personal-Ideals-and-Values" class="headerlink" title="2. Jin Yong’s Personal Ideals and Values"></a>2. Jin Yong’s Personal Ideals and Values</h3><p>Jin Yong’s philosophy was deeply influenced by traditional Chinese values, particularly Confucian, Daoist, and Buddhist teachings. He valued the concept of “xia” (侠), or chivalry, which emphasizes social responsibility, justice, and selflessness. His characters often risk their lives to defend the vulnerable and stand against injustice, embodying this “chivalric spirit.” Characters like Guo Jing and Xiao Feng, despite being independent from any governing authority, dedicate themselves to the well-being of the people, reflecting a sense of duty toward society rather than personal gain.</p>
-<p><strong>The Contrast Between Chivalry and Authority</strong> In Jin Yong’s works, the chivalric ideal frequently conflicts with corrupt or inept authorities. This contrast underscores his cautious view of power. Jin Yong believed that power easily leads to corruption, so he favored heroes who operate outside formal structures, wielding justice without relying on authority. Through these characters, he conveyed his ideals of “benevolence and righteousness” while maintaining a critical perspective on political power.</p>
-<h3 id="In-Summary"><a href="#In-Summary" class="headerlink" title="In Summary"></a>In Summary</h3><p>Jin Yong’s portrayal of rebels and resistance to tyranny reflects Hong Kong’s own struggles for justice and freedom during his time. His works express his ideals of social justice and his distrust of authority through complex heroes who resist oppression. Ultimately, Jin Yong’s novels go beyond the martial arts genre—they serve as a critique of human nature, a commentary on power, and an exploration of ideals for a just society.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/07/dependency-inversion-principle-dip/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/07/dependency-inversion-principle-dip/" class="post-title-link" itemprop="url">Dependency Inversion Principle, DIP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-07 19:31:02" itemprop="dateCreated datePublished" datetime="2024-11-07T19:31:02-05:00">2024-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-16 22:12:33" itemprop="dateModified" datetime="2024-11-16T22:12:33-05:00">2024-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 SOLID 原则中，<strong>D</strong> 代表 <strong>依赖倒置原则（Dependency Inversion Principle, DIP）</strong>。这个原则的核心思想是，<strong>高层模块不应该依赖于低层模块，二者都应该依赖于抽象；抽象不应该依赖于具体实现，具体实现应该依赖于抽象</strong>。</p>
-<h3 id="依赖倒置原则的核心概念"><a href="#依赖倒置原则的核心概念" class="headerlink" title="依赖倒置原则的核心概念"></a>依赖倒置原则的核心概念</h3><p>依赖倒置原则的目标是为了降低模块之间的耦合度，使得代码更加灵活和易于扩展。它提出了两条关键规则：</p>
-<ol>
-<li><p><strong>高层模块不应该依赖低层模块，二者都应该依赖于抽象</strong>：在软件设计中，高层模块往往是业务逻辑层，它是整个系统的核心。低层模块则是实现细节，如数据库、网络等。依赖倒置原则要求高层模块和低层模块都应该依赖于抽象（如接口或抽象类），而不是直接依赖于具体实现。</p>
-</li>
-<li><p><strong>抽象不应该依赖于细节，细节应该依赖于抽象</strong>：换句话说，接口和抽象类应该定义通用的行为，具体实现则依赖于这些抽象，而不是让抽象去依赖实现细节。</p>
-</li>
-</ol>
-<h3 id="依赖倒置原则的目的"><a href="#依赖倒置原则的目的" class="headerlink" title="依赖倒置原则的目的"></a>依赖倒置原则的目的</h3><ul>
-<li><strong>减少模块之间的耦合</strong>：模块之间的依赖会降低系统的灵活性，增加代码的维护成本。通过依赖抽象而不是依赖具体类，可以降低模块之间的耦合。</li>
-<li><strong>增加代码的可扩展性</strong>：如果模块之间依赖于接口或抽象类，新增或替换实现类时对原有模块的影响较小，方便扩展和维护。</li>
-<li><strong>提升测试的便利性</strong>：依赖倒置原则使得代码更容易进行单元测试。高层模块和低层模块之间的依赖是通过接口实现的，因此可以轻松地替换具体的实现类为模拟类或假数据。</li>
-</ul>
-<h3 id="依赖倒置原则的示例"><a href="#依赖倒置原则的示例" class="headerlink" title="依赖倒置原则的示例"></a>依赖倒置原则的示例</h3><p>假设我们正在开发一个邮件发送系统，其中 <code>EmailSender</code> 类用于发送邮件，而 <code>Notification</code> 类用于调用 <code>EmailSender</code> 发送通知。如果不遵循依赖倒置原则，设计可能如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 低层模块，负责发送邮件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmailSender</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendEmail</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Sending email: &quot;</span> + message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 高层模块，负责通知</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Notification</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> EmailSender emailSender;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Notification</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.emailSender = <span class="keyword">new</span> <span class="title class_">EmailSender</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">send</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        emailSender.sendEmail(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在这个设计中，<code>Notification</code> 类依赖于 <code>EmailSender</code> 的具体实现。这样一来，如果以后想要将邮件发送方式替换为短信（SMS）或其他方式，就需要修改 <code>Notification</code> 类的代码，从而破坏了模块的封装性。</p>
-<h3 id="改进设计以遵循依赖倒置原则"><a href="#改进设计以遵循依赖倒置原则" class="headerlink" title="改进设计以遵循依赖倒置原则"></a>改进设计以遵循依赖倒置原则</h3><p>为了遵循依赖倒置原则，我们可以将 <code>EmailSender</code> 抽象为一个接口，让 <code>Notification</code> 依赖于该接口，而不是具体实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抽象的发送器接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MessageSender</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">sendMessage</span><span class="params">(String message)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体的邮件发送器实现</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmailSender</span> <span class="keyword">implements</span> <span class="title class_">MessageSender</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendMessage</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Sending email: &quot;</span> + message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 高层模块，负责通知</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Notification</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> MessageSender messageSender;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过构造函数注入依赖</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Notification</span><span class="params">(MessageSender messageSender)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.messageSender = messageSender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">send</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        messageSender.sendMessage(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在这个改进后的设计中：</p>
-<ul>
-<li>我们创建了一个 <code>MessageSender</code> 接口，<code>EmailSender</code> 实现了该接口。</li>
-<li><code>Notification</code> 类现在依赖于 <code>MessageSender</code> 接口，而不是 <code>EmailSender</code> 的具体实现。</li>
-<li><code>MessageSender</code> 是一个抽象，这样 <code>Notification</code> 和 <code>EmailSender</code> 之间的依赖关系被解耦了。</li>
-</ul>
-<p>现在，如果想要添加新的发送方式，比如短信发送，只需添加一个新的 <code>SmsSender</code> 类实现 <code>MessageSender</code> 接口，而无需修改 <code>Notification</code> 类。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新的短信发送器实现</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SmsSender</span> <span class="keyword">implements</span> <span class="title class_">MessageSender</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendMessage</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Sending SMS: &quot;</span> + message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="依赖倒置原则的实际应用"><a href="#依赖倒置原则的实际应用" class="headerlink" title="依赖倒置原则的实际应用"></a>依赖倒置原则的实际应用</h3><p>依赖倒置原则通常通过 <strong>依赖注入</strong> 来实现。依赖注入是一种设计模式，能够将接口的实现注入到类中，从而实现依赖的倒置。依赖注入主要有三种方式：</p>
-<ol>
-<li><strong>构造函数注入</strong>：通过构造函数传递依赖（如上例中的 <code>Notification</code>）。</li>
-<li><strong>Setter 方法注入</strong>：通过 Setter 方法传递依赖。</li>
-<li><strong>接口注入</strong>：通过接口方法传递依赖（较少使用）。</li>
-</ol>
-<h3 id="使用依赖倒置原则的好处"><a href="#使用依赖倒置原则的好处" class="headerlink" title="使用依赖倒置原则的好处"></a>使用依赖倒置原则的好处</h3><ul>
-<li><strong>解耦代码，提高灵活性</strong>：高层模块和低层模块都依赖抽象，减少了类与类之间的依赖关系。</li>
-<li><strong>增强扩展性</strong>：高层模块可以接入不同的低层模块，而不必修改自身代码。</li>
-<li><strong>提高可测试性</strong>：由于高层模块依赖于接口，可以更轻松地替换为模拟实现，以便进行单元测试。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>依赖倒置原则通过要求高层模块和低层模块都依赖抽象，而非具体实现，来减少代码的耦合性，使代码更加灵活、易于扩展、便于测试。在实际开发中，依赖倒置原则是实现松耦合设计的关键之一，也是构建稳定系统结构的基础。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/07/interface-segregation-principle-isp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/07/interface-segregation-principle-isp/" class="post-title-link" itemprop="url">Interface Segregation Principle, ISP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-07 19:30:53" itemprop="dateCreated datePublished" datetime="2024-11-07T19:30:53-05:00">2024-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-16 22:12:33" itemprop="dateModified" datetime="2024-11-16T22:12:33-05:00">2024-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 SOLID 原则中，<strong>I</strong> 代表 <strong>接口隔离原则（Interface Segregation Principle, ISP）</strong>。这个原则强调接口设计的简洁性，避免在接口中添加过多的、不必要的方法，使得接口更加专注于特定的职责，以便让实现接口的类只需要关注其使用的特定功能。</p>
-<h3 id="接口隔离原则的核心思想"><a href="#接口隔离原则的核心思想" class="headerlink" title="接口隔离原则的核心思想"></a>接口隔离原则的核心思想</h3><p>接口隔离原则的核心思想是，<strong>应该为不同的客户端提供专用的接口，而不是强迫所有的客户端都依赖一个通用的接口</strong>。简单来说，接口应该小而精，并且专注于满足客户端的需求，而不是试图将所有方法都放在一个庞大的接口中。</p>
-<h3 id="原则要点"><a href="#原则要点" class="headerlink" title="原则要点"></a>原则要点</h3><ol>
-<li><p><strong>小接口比大接口好</strong>：接口不应包含太多方法。小的接口意味着接口更加专一，客户端不必依赖那些与它们无关的方法。</p>
-</li>
-<li><p><strong>接口应该只包含客户端需要的方法</strong>：接口隔离原则主张使用多个小的接口，而不是一个庞大的通用接口，这样可以让实现接口的类只实现自己需要的功能，而不必实现不相关的方法。</p>
-</li>
-<li><p><strong>避免接口污染（Fat Interface）</strong>：如果一个接口包含了过多的方法，那些不需要的客户端就会受到影响。这种接口被称为“臃肿的接口（Fat Interface）”，这种设计违背了接口隔离原则，会导致类之间的高耦合性。</p>
-</li>
-</ol>
-<h3 id="接口隔离原则的示例"><a href="#接口隔离原则的示例" class="headerlink" title="接口隔离原则的示例"></a>接口隔离原则的示例</h3><p>假设我们正在开发一个打印机相关的系统，所有打印机都必须遵循一个接口 <code>Printer</code>。不好的设计可能如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一个不遵循接口隔离原则的设计示例</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Printer</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">printDocument</span><span class="params">(String content)</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">scanDocument</span><span class="params">()</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">faxDocument</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在这个接口设计中，<code>Printer</code> 接口有三个方法：打印、扫描和传真。但是，并不是所有的打印机都支持扫描和传真功能。例如，某些打印机可能只支持打印。这就迫使这些打印机的实现类去实现 <code>scanDocument</code> 和 <code>faxDocument</code> 方法，即使它们不需要这些功能。</p>
-<h3 id="改善后的设计"><a href="#改善后的设计" class="headerlink" title="改善后的设计"></a>改善后的设计</h3><p>为了遵循接口隔离原则，可以将接口拆分为多个小接口，使每个接口都专注于特定的功能：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只负责打印的接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Printable</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">printDocument</span><span class="params">(String content)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只负责扫描的接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Scannable</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">scanDocument</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只负责传真功能的接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Faxable</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">faxDocument</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>现在，接口更加专注于各自的职责。如果某个打印机只支持打印功能，那么它只需要实现 <code>Printable</code> 接口，而不需要关心 <code>Scannable</code> 和 <code>Faxable</code> 接口。这使得代码更加清晰，并减少了不必要的依赖。</p>
-<h3 id="使用接口隔离原则的好处"><a href="#使用接口隔离原则的好处" class="headerlink" title="使用接口隔离原则的好处"></a>使用接口隔离原则的好处</h3><ul>
-<li><strong>提高代码的可读性</strong>：更小的接口更加直观，使代码更易于理解。</li>
-<li><strong>减少实现类的负担</strong>：实现类只需要关注自己需要的接口，避免不必要的方法。</li>
-<li><strong>更容易维护</strong>：接口隔离使得代码更具模块化，任何功能的变化只会影响特定的接口和实现类，不会影响到不相关的类。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>接口隔离原则强调接口的精简和专注，避免臃肿的接口。在实际开发中，遵循这个原则可以使代码更加符合单一职责，降低类之间的耦合性，提高系统的可维护性。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/07/dao/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/07/dao/" class="post-title-link" itemprop="url">DAO</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-07 19:30:09" itemprop="dateCreated datePublished" datetime="2024-11-07T19:30:09-05:00">2024-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-16 22:12:33" itemprop="dateModified" datetime="2024-11-16T22:12:33-05:00">2024-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>DAO（Data Access Object，数据访问对象）是一种设计模式，目的是将数据访问逻辑与业务逻辑分离。它通过定义一套标准接口，隐藏了具体的数据源实现细节，为上层业务逻辑提供统一的数据访问方法。DAO的核心思想是让业务逻辑不直接处理数据库操作，而是通过DAO来访问数据，这样可以增强代码的可维护性和扩展性。</p>
-<h3 id="DAO的工作方式"><a href="#DAO的工作方式" class="headerlink" title="DAO的工作方式"></a>DAO的工作方式</h3><ul>
-<li><strong>接口定义</strong>：DAO接口定义了标准的数据访问方法，例如<code>findById()</code>、<code>save()</code>、<code>delete()</code>等，用于对数据库中的数据进行CRUD（创建、读取、更新和删除）操作。</li>
-<li><strong>具体实现类</strong>：DAO的实现类会实现这些接口，并在内部使用具体的数据访问技术（例如JDBC）来执行实际的数据库操作。</li>
-<li><strong>DTO对象</strong>：在DAO中常会使用数据传输对象（DTO），即简单的Java对象（POJO），用于封装从数据库中检索到的数据。这些DTO通常通过DAO返回给业务层。</li>
-</ul>
-<h3 id="DAO和JDBC的关系"><a href="#DAO和JDBC的关系" class="headerlink" title="DAO和JDBC的关系"></a>DAO和JDBC的关系</h3><p>DAO通常是基于JDBC实现的。JDBC提供了Java访问数据库的标准API，而DAO则通过封装JDBC操作，提供了更易于使用和维护的数据访问层。具体来说：</p>
-<ol>
-<li><p><strong>JDBC实现了底层数据库连接和操作</strong>：JDBC用于管理数据库连接、执行SQL语句（如查询和更新）并获取结果集，是直接与数据库交互的工具。</p>
-</li>
-<li><p><strong>DAO使用JDBC来实现数据操作</strong>：在DAO实现类中，通常会通过JDBC来连接数据库并执行SQL查询。例如，在<code>UserDAO</code>实现类中，可能会用JDBC的<code>PreparedStatement</code>来执行查询，使用<code>ResultSet</code>获取数据，并将结果封装成<code>User</code>对象返回。</p>
-</li>
-<li><p><strong>DAO简化了业务层的代码</strong>：业务层不需要直接操作JDBC代码。相反，业务层通过调用DAO接口方法（例如<code>userDAO.getUserById(id)</code>）即可获取数据，无需关心JDBC的具体实现。</p>
-</li>
-</ol>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>一个典型的DAO方法实现（基于JDBC）可能如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserDAO</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Connection conn;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserDAO</span><span class="params">(Connection conn)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.conn = conn;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> User <span class="title function_">getUserById</span><span class="params">(<span class="type">int</span> id)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT * FROM users WHERE id = ?&quot;</span>;</span><br><span class="line">        <span class="keyword">try</span> (<span class="type">PreparedStatement</span> <span class="variable">stmt</span> <span class="operator">=</span> conn.prepareStatement(sql)) &#123;</span><br><span class="line">            stmt.setInt(<span class="number">1</span>, id);</span><br><span class="line">            <span class="keyword">try</span> (<span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> stmt.executeQuery()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (rs.next()) &#123;</span><br><span class="line">                    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">                    user.setId(rs.getInt(<span class="string">&quot;id&quot;</span>));</span><br><span class="line">                    user.setName(rs.getString(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">                    <span class="keyword">return</span> user;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在这个例子中，<code>UserDAO</code>类使用JDBC来实现获取用户数据的逻辑，但在业务层代码中，只需调用<code>getUserById()</code>方法即可获取数据，而不需要直接操作JDBC代码。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>DAO和JDBC关系密切但职责不同：</p>
-<ul>
-<li><strong>JDBC</strong>是Java访问数据库的标准API，提供了直接的数据库操作。</li>
-<li><strong>DAO</strong>使用JDBC来实现数据访问操作，并向业务层提供更简单的接口，避免直接操作JDBC，从而提高代码的可维护性和可读性。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/07/jdbc%EF%BC%88java-database-connectivity%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/07/jdbc%EF%BC%88java-database-connectivity%EF%BC%89/" class="post-title-link" itemprop="url">JDBC（Java Database Connectivity）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-07 19:29:52" itemprop="dateCreated datePublished" datetime="2024-11-07T19:29:52-05:00">2024-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-16 22:12:33" itemprop="dateModified" datetime="2024-11-16T22:12:33-05:00">2024-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>JDBC（Java Database Connectivity）</strong> 是 Java 提供的一个用于访问和操作数据库的 API（应用程序编程接口），它使得 Java 程序可以与各种关系型数据库（如 MySQL、PostgreSQL、Oracle、SQL Server 等）进行交互。通过 JDBC，Java 应用程序可以执行 SQL 查询、更新数据库数据、调用存储过程、管理事务等。</p>
-<p>JDBC 是 Java 标准库的一部分，它提供了一个通用接口，使得开发者能够以一种标准的方式连接数据库，无需关心底层数据库的具体实现细节。不同的数据库厂商（如 MySQL、Oracle）会为 JDBC 提供各自的驱动程序，Java 程序通过这些驱动程序与数据库进行交互。</p>
-<hr>
-<h3 id="JDBC-的核心组成"><a href="#JDBC-的核心组成" class="headerlink" title="JDBC 的核心组成"></a>JDBC 的核心组成</h3><p>JDBC 的架构由以下几个核心组件组成：</p>
-<ol>
-<li><p><strong>DriverManager</strong><br><code>DriverManager</code> 类负责管理不同的数据库驱动，Java 程序通过它来注册和连接数据库驱动。<code>DriverManager</code> 会根据提供的数据库 URL 找到合适的驱动来建立连接。</p>
-</li>
-<li><p><strong>Connection</strong><br><code>Connection</code> 接口表示一个数据库连接对象，提供了与数据库交互的会话。通过 <code>Connection</code> 对象，程序可以发送 SQL 语句、执行事务、设置自动提交等。</p>
-</li>
-<li><p><strong>Statement</strong><br><code>Statement</code> 是用于执行 SQL 语句的接口，它包括三种常用形式：</p>
-<ul>
-<li><strong>Statement</strong>：用于执行简单的 SQL 语句。</li>
-<li><strong>PreparedStatement</strong>：预编译的 SQL 语句，用于执行带参数的查询，效率更高且防止 SQL 注入。</li>
-<li><strong>CallableStatement</strong>：用于执行数据库存储过程。</li>
-</ul>
-</li>
-<li><p><strong>ResultSet</strong><br><code>ResultSet</code> 表示查询的结果集，存储着从数据库中查询到的数据。通过 <code>ResultSet</code> 对象，程序可以逐行读取查询结果，访问数据并进行处理。</p>
-</li>
-<li><p><strong>SQLException</strong><br><code>SQLException</code> 是 JDBC 中用于处理数据库错误的异常类。当数据库访问出错时，JDBC 会抛出此异常，并提供详细的错误信息。</p>
-</li>
-</ol>
-<hr>
-<h3 id="JDBC-的工作流程"><a href="#JDBC-的工作流程" class="headerlink" title="JDBC 的工作流程"></a>JDBC 的工作流程</h3><ol>
-<li><p><strong>加载数据库驱动</strong><br>使用 <code>Class.forName()</code> 方法加载数据库驱动程序，或使用 JDBC 4.0 以后的自动加载功能（无需手动加载）。</p>
-</li>
-<li><p><strong>建立数据库连接</strong><br>使用 <code>DriverManager.getConnection()</code> 方法，传入数据库 URL、用户名和密码，获取数据库连接对象 <code>Connection</code>。</p>
-</li>
-<li><p><strong>创建 SQL 语句对象</strong><br>使用 <code>Connection</code> 对象的 <code>createStatement()</code> 方法或 <code>prepareStatement()</code> 方法来创建 SQL 语句对象 <code>Statement</code> 或 <code>PreparedStatement</code>。</p>
-</li>
-<li><p><strong>执行 SQL 语句</strong><br>使用 <code>Statement</code> 或 <code>PreparedStatement</code> 对象的 <code>executeQuery()</code>（用于查询）或 <code>executeUpdate()</code>（用于插入、更新、删除）方法来执行 SQL 语句。</p>
-</li>
-<li><p><strong>处理结果集</strong><br>如果执行的是查询语句，则会返回 <code>ResultSet</code> 对象，通过遍历 <code>ResultSet</code> 获取查询到的数据。</p>
-</li>
-<li><p><strong>关闭资源</strong><br>完成操作后，关闭 <code>ResultSet</code>、<code>Statement</code>、<code>Connection</code> 等资源，避免资源泄漏。</p>
-</li>
-</ol>
-<hr>
-<h3 id="JDBC-示例代码"><a href="#JDBC-示例代码" class="headerlink" title="JDBC 示例代码"></a>JDBC 示例代码</h3><p>以下是一个完整的 JDBC 示例，展示了如何连接到 MySQL 数据库，执行查询并输出结果。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JDBCDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">jdbcUrl</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://localhost:3306/demo&quot;</span>; <span class="comment">// 数据库URL</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>; <span class="comment">// 数据库用户名</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;password&quot;</span>; <span class="comment">// 数据库密码</span></span><br><span class="line"></span><br><span class="line">        <span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">Statement</span> <span class="variable">statement</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ResultSet</span> <span class="variable">resultSet</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 1. 加载 JDBC 驱动</span></span><br><span class="line">            Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 2. 创建数据库连接</span></span><br><span class="line">            connection = DriverManager.getConnection(jdbcUrl, username, password);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 3. 创建 Statement 对象</span></span><br><span class="line">            statement = connection.createStatement();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 4. 执行查询并获取结果</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT id, name, email FROM users&quot;</span>;</span><br><span class="line">            resultSet = statement.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 5. 处理结果集</span></span><br><span class="line">            <span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">id</span> <span class="operator">=</span> resultSet.getInt(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">                <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> resultSet.getString(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">                <span class="type">String</span> <span class="variable">email</span> <span class="operator">=</span> resultSet.getString(<span class="string">&quot;email&quot;</span>);</span><br><span class="line">                System.out.println(<span class="string">&quot;ID: &quot;</span> + id + <span class="string">&quot;, Name: &quot;</span> + name + <span class="string">&quot;, Email: &quot;</span> + email);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Database driver not found.&quot;</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Database access error.&quot;</span>);</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">// 6. 关闭资源</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (resultSet != <span class="literal">null</span>) resultSet.close();</span><br><span class="line">                <span class="keyword">if</span> (statement != <span class="literal">null</span>) statement.close();</span><br><span class="line">                <span class="keyword">if</span> (connection != <span class="literal">null</span>) connection.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="JDBC-的重要特性"><a href="#JDBC-的重要特性" class="headerlink" title="JDBC 的重要特性"></a>JDBC 的重要特性</h3><ol>
-<li><strong>数据库独立性</strong>：通过 JDBC API，可以与任何支持 JDBC 的数据库进行交互，只需要切换驱动程序即可。</li>
-<li><strong>SQL 注入防护</strong>：使用 <code>PreparedStatement</code> 可以防止 SQL 注入攻击，因为它会对参数进行预编译和转义。</li>
-<li><strong>事务管理</strong>：通过 <code>Connection</code> 接口，可以启用和控制事务（如提交、回滚），以确保数据一致性。</li>
-<li><strong>批处理</strong>：<code>Statement</code> 和 <code>PreparedStatement</code> 支持批量执行多条 SQL 语句，减少数据库交互的次数，提高效率。</li>
-<li><strong>异步处理</strong>：JDBC 4.1 之后提供了异步 API，可以异步执行数据库操作，减少阻塞，提高性能。</li>
-</ol>
-<hr>
-<h3 id="JDBC-驱动类型"><a href="#JDBC-驱动类型" class="headerlink" title="JDBC 驱动类型"></a>JDBC 驱动类型</h3><p>JDBC 驱动程序分为以下四种类型：</p>
-<ol>
-<li><p><strong>Type-1 驱动（JDBC-ODBC Bridge Driver）</strong><br>使用 ODBC 驱动，适用于连接不直接支持 JDBC 的数据库，效率较低，已逐渐淘汰。</p>
-</li>
-<li><p><strong>Type-2 驱动（Native-API Driver）</strong><br>使用数据库的本地 API，通过本地库与数据库交互，需要安装数据库的客户端。</p>
-</li>
-<li><p><strong>Type-3 驱动（Network Protocol Driver）</strong><br>使用中间件服务器，通过网络协议连接数据库，适合大型企业环境。</p>
-</li>
-<li><p><strong>Type-4 驱动（Thin Driver）</strong><br>纯 Java 实现的驱动，直接通过数据库协议与数据库通信，是最常用的驱动类型，如 MySQL 和 PostgreSQL 的 JDBC 驱动。</p>
-</li>
-</ol>
-<hr>
-<h3 id="JDBC-优缺点"><a href="#JDBC-优缺点" class="headerlink" title="JDBC 优缺点"></a>JDBC 优缺点</h3><p><strong>优点</strong>：</p>
-<ul>
-<li>提供了标准化的 API，支持多种数据库。</li>
-<li>支持事务控制、批处理、存储过程等高级功能。</li>
-<li>独立于具体数据库，实现数据库无关性。</li>
-</ul>
-<p><strong>缺点</strong>：</p>
-<ul>
-<li>代码冗长，手动管理连接资源较为复杂。</li>
-<li>执行原始 SQL，可能影响代码的可维护性和数据库的可移植性。</li>
-<li>数据库操作涉及 I&#x2F;O，可能会影响性能，通常与连接池和 ORM 框架结合使用。</li>
-</ul>
-<hr>
-<h3 id="JDBC-和其他数据访问技术的关系"><a href="#JDBC-和其他数据访问技术的关系" class="headerlink" title="JDBC 和其他数据访问技术的关系"></a>JDBC 和其他数据访问技术的关系</h3><p>虽然 JDBC 是基础的数据访问 API，但在实际开发中，很多开发者会选择更高级的 ORM 框架（如 Hibernate、JPA）来简化操作，自动管理对象和表之间的映射关系。然而，JDBC 仍然是 Java 数据库编程的基础，其规范与底层实现为所有高级数据访问技术提供支持。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/07/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8Cweb%E7%9A%84%E6%9D%83%E9%99%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/07/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8Cweb%E7%9A%84%E6%9D%83%E9%99%90/" class="post-title-link" itemprop="url">客户端和web的权限</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-07 19:29:28" itemprop="dateCreated datePublished" datetime="2024-11-07T19:29:28-05:00">2024-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-16 22:12:33" itemprop="dateModified" datetime="2024-11-16T22:12:33-05:00">2024-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>是的，客户端应用通常确实会比 Web 端应用拥有更多的权限。以下是一些主要原因：</p>
-<h3 id="1-系统资源的直接访问"><a href="#1-系统资源的直接访问" class="headerlink" title="1. 系统资源的直接访问"></a>1. <strong>系统资源的直接访问</strong></h3><ul>
-<li>客户端应用通常可以直接访问本地系统资源，例如文件系统、摄像头、麦克风、地理位置、蓝牙、USB 接口等。而 Web 端应用的权限通常受到浏览器的限制，尽管现代浏览器提供了部分接口（如 <code>getUserMedia</code>、<code>Geolocation API</code>），这些权限的范围和灵活性远不如客户端应用。</li>
-</ul>
-<h3 id="2-本地存储"><a href="#2-本地存储" class="headerlink" title="2. 本地存储"></a>2. <strong>本地存储</strong></h3><ul>
-<li>客户端应用可以使用各种本地存储技术（如文件系统、数据库、加密存储），并且可以在不受浏览器沙盒限制的情况下自由读写。而 Web 应用在本地存储方面，通常只能使用 <code>localStorage</code>、<code>sessionStorage</code> 或者 IndexedDB，并且受到浏览器的存储大小限制。</li>
-</ul>
-<h3 id="3-后台运行"><a href="#3-后台运行" class="headerlink" title="3. 后台运行"></a>3. <strong>后台运行</strong></h3><ul>
-<li>客户端应用通常可以在系统后台运行，甚至在关闭窗口或用户注销时继续执行任务。而 Web 应用在浏览器窗口关闭后就会被中止，即使有一些 PWA（渐进式 Web 应用）和 Web Workers 支持后台任务，其运行能力和系统整合性也有限。</li>
-</ul>
-<h3 id="4-与操作系统的深度集成"><a href="#4-与操作系统的深度集成" class="headerlink" title="4. 与操作系统的深度集成"></a>4. <strong>与操作系统的深度集成</strong></h3><ul>
-<li>客户端应用可以调用操作系统的 API，以更深入地集成到系统中，如访问通知系统、修改系统设置、与其他应用交互等。Web 应用的系统交互一般由浏览器来管理，受到严格的权限控制和沙盒机制的限制。</li>
-</ul>
-<h3 id="5-性能和计算能力"><a href="#5-性能和计算能力" class="headerlink" title="5. 性能和计算能力"></a>5. <strong>性能和计算能力</strong></h3><ul>
-<li>客户端应用可以利用操作系统提供的多线程或并行计算能力，性能优化也更加自由，而 Web 应用受限于 JavaScript 的单线程执行环境（尽管可以使用 Web Workers 实现并行性，但其能力有限）。</li>
-</ul>
-<h3 id="6-网络访问权限"><a href="#6-网络访问权限" class="headerlink" title="6. 网络访问权限"></a>6. <strong>网络访问权限</strong></h3><ul>
-<li>客户端应用在网络访问权限上更为灵活，可以自由选择通信协议、端口等，而 Web 应用受浏览器的同源策略限制，并且协议通常局限于 HTTP 和 WebSocket。</li>
-</ul>
-<h3 id="7-安全权限"><a href="#7-安全权限" class="headerlink" title="7. 安全权限"></a>7. <strong>安全权限</strong></h3><ul>
-<li>客户端应用可以获取更高的系统权限，比如管理员权限，进行一些需要系统授权的操作。而 Web 应用几乎不可能获得此类权限，浏览器会限制 Web 应用对系统进行敏感操作。</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>由于客户端应用的本地化安装和运行模式，其通常被赋予更高的系统权限，能够更全面地访问本地资源和服务。而 Web 应用则是基于浏览器的沙盒模式设计的，主要目的在于保障用户的安全性，因此 Web 端应用的权限相比客户端应用会受到更多的限制。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/22/supervised-learning%E5%92%8Cunsupervised/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/22/supervised-learning%E5%92%8Cunsupervised/" class="post-title-link" itemprop="url">Supervised Learning和Unsupervised</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-10-22 19:46:36" itemprop="dateCreated datePublished" datetime="2024-10-22T19:46:36-04:00">2024-10-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-16 22:12:32" itemprop="dateModified" datetime="2024-11-16T22:12:32-05:00">2024-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>Supervised Learning: Regression</strong> 和 <strong>Unsupervised Learning</strong> 的主要区别在于数据是否有标签以及任务目标不同。</p>
-<h3 id="1-Supervised-Learning-Regression（监督学习：回归）"><a href="#1-Supervised-Learning-Regression（监督学习：回归）" class="headerlink" title="1. Supervised Learning: Regression（监督学习：回归）"></a>1. <strong>Supervised Learning: Regression（监督学习：回归）</strong></h3><p><strong>监督学习</strong>中的回归是指算法从<strong>带有标签的数据</strong>中学习，目标是预测<strong>连续的数值</strong>输出。例如，给定一些输入数据，系统需要预测一个连续的值，如房价、温度、收入等。</p>
-<ul>
-<li><p><strong>数据特点</strong>：在回归问题中，训练数据集包含输入特征（features）和对应的已知目标值（标签）。</p>
-<ul>
-<li>例如，房价预测问题中，输入特征可能是房子的面积、房间数量、位置等，目标值是房子的价格。</li>
-</ul>
-</li>
-<li><p><strong>任务目标</strong>：回归任务的目标是建立一个模型，能够根据新的输入数据预测其对应的连续数值。</p>
-<ul>
-<li>举例：预测未来几天的股票价格或某个客户在未来的消费金额。</li>
-</ul>
-</li>
-<li><p><strong>常用算法</strong>：</p>
-<ul>
-<li>线性回归（Linear Regression）</li>
-<li>多项式回归（Polynomial Regression）</li>
-<li>支持向量回归（Support Vector Regression, SVR）</li>
-</ul>
-</li>
-<li><p><strong>示例</strong>：</p>
-<ul>
-<li>预测汽车的油耗（数值型输出）</li>
-<li>根据过去的天气数据预测未来的温度</li>
-</ul>
-</li>
-<li><p><strong>输入与输出</strong>：</p>
-<ul>
-<li>输入：多维特征（例如，年龄、身高等）</li>
-<li>输出：连续的数值（例如，价格、时间等）</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-Unsupervised-Learning（无监督学习）"><a href="#2-Unsupervised-Learning（无监督学习）" class="headerlink" title="2. Unsupervised Learning（无监督学习）"></a>2. <strong>Unsupervised Learning（无监督学习）</strong></h3><p><strong>无监督学习</strong>的特点是使用<strong>无标签的数据</strong>，目标是发现数据中的隐藏模式或结构。没有明确的输出目标值，算法需要自己寻找数据的模式或群组。</p>
-<ul>
-<li><p><strong>数据特点</strong>：无监督学习的数据没有标签，也就是说数据集中只有输入特征，没有与之对应的目标值。算法需要自己找到数据的结构、模式或关系。</p>
-<ul>
-<li>例如，在客户数据中，没有给出客户是否是高消费客户，算法需要自动找出不同类型的客户。</li>
-</ul>
-</li>
-<li><p><strong>任务目标</strong>：无监督学习通常用于发现数据中的群组、关联或异常点。它主要用于<strong>聚类</strong>、<strong>降维</strong>或<strong>异常检测</strong>任务。</p>
-<ul>
-<li>举例：在客户数据中发现相似客户的群组，或者在银行交易数据中检测异常的交易行为。</li>
-</ul>
-</li>
-<li><p><strong>常用算法</strong>：</p>
-<ul>
-<li>聚类算法（Clustering）：如 K-Means、层次聚类（Hierarchical Clustering）</li>
-<li>主成分分析（Principal Component Analysis, PCA）：用于降维</li>
-<li>密度估计（Density Estimation）</li>
-<li>异常检测（Outlier Detection）</li>
-</ul>
-</li>
-<li><p><strong>示例</strong>：</p>
-<ul>
-<li>对客户进行聚类分析，找出具有相似购买行为的客户群体。</li>
-<li>在网络流量数据中检测异常流量（如潜在的网络攻击）。</li>
-</ul>
-</li>
-<li><p><strong>输入与输出</strong>：</p>
-<ul>
-<li>输入：多维特征（例如，客户的年龄、消费习惯等）</li>
-<li>输出：数据的模式、群组或异常点（例如，将客户分为不同的群组）</li>
-</ul>
-</li>
-</ul>
-<h3 id="关键区别："><a href="#关键区别：" class="headerlink" title="关键区别："></a><strong>关键区别</strong>：</h3><p><strong>特点</strong></p>
-<p><strong>Supervised Learning: Regression</strong></p>
-<p><strong>Unsupervised Learning</strong></p>
-<p><strong>数据标签</strong></p>
-<p>有标签数据，输入数据与目标值一一对应</p>
-<p>无标签数据，只有输入特征，没有目标值</p>
-<p><strong>任务目标</strong></p>
-<p>预测连续的数值，例如价格、时间等</p>
-<p>发现数据中的隐藏模式、群组或异常点</p>
-<p><strong>常见任务</strong></p>
-<p>预测问题，如房价预测、温度预测</p>
-<p>聚类、降维、异常检测等</p>
-<p><strong>常用算法</strong></p>
-<p>线性回归、多项式回归、支持向量回归等</p>
-<p>K-Means、层次聚类、主成分分析等</p>
-<p><strong>输出类型</strong></p>
-<p>连续数值</p>
-<p>数据结构（群组、降维后的特征）</p>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结</strong>：</h3><ul>
-<li><strong>监督学习：回归</strong> 是通过学习有标签的输入输出数据来预测连续的数值。</li>
-<li><strong>无监督学习</strong> 是在没有目标值的情况下，通过算法来识别数据中的模式和结构，例如聚类或异常检测。</li>
-</ul>
-<p>希望这些解释能帮助你更好地理解这两者的区别！如果需要更详细的解释，欢迎继续提问。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/21/%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/21/%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5/" class="post-title-link" itemprop="url">混淆矩阵</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-10-21 21:10:10" itemprop="dateCreated datePublished" datetime="2024-10-21T21:10:10-04:00">2024-10-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-16 22:12:32" itemprop="dateModified" datetime="2024-11-16T22:12:32-05:00">2024-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>Confusion Matrix（混淆矩阵）</strong>是用于评价分类模型性能的一个工具，特别是当模型的输出是多个类时。它通过显示实际类与预测类的对比来描述模型的预测结果。混淆矩阵是一种矩阵，行表示<strong>实际类别</strong>，列表示<strong>预测类别</strong>。它能够帮助评估模型的正确分类和错误分类。</p>
-<h3 id="混淆矩阵的结构："><a href="#混淆矩阵的结构：" class="headerlink" title="混淆矩阵的结构："></a>混淆矩阵的结构：</h3><p>通常，混淆矩阵应用于二分类问题，矩阵形式如下：</p>
-<p>预测正类（Positive）</p>
-<p>预测负类（Negative）</p>
-<p><strong>实际正类</strong></p>
-<p>真阳性（TP）</p>
-<p>假阴性（FN）</p>
-<p><strong>实际负类</strong></p>
-<p>假阳性（FP）</p>
-<p>真阴性（TN）</p>
-<h3 id="矩阵中的四个重要指标："><a href="#矩阵中的四个重要指标：" class="headerlink" title="矩阵中的四个重要指标："></a>矩阵中的四个重要指标：</h3><ol>
-<li>**TP (True Positive)**：模型正确预测为正类的数量（预测为正，实际也是正）。</li>
-<li>**TN (True Negative)**：模型正确预测为负类的数量（预测为负，实际也是负）。</li>
-<li>**FP (False Positive)**：模型错误预测为正类的数量（预测为正，实际为负），即“假阳性”。</li>
-<li>**FN (False Negative)**：模型错误预测为负类的数量（预测为负，实际为正），即“假阴性”。</li>
-</ol>
-<h3 id="常用评价指标公式："><a href="#常用评价指标公式：" class="headerlink" title="常用评价指标公式："></a>常用评价指标公式：</h3><ol>
-<li><p>**准确率 (Accuracy)**：</p>
-<ul>
-<li>准确率表示模型预测正确的比例。公式为：</li>
-</ul>
-<p>Accuracy=TP+TNTP+TN+FP+FN</p>
-</li>
-<li><p>**精确率 (Precision)**：</p>
-<ul>
-<li>精确率表示在所有预测为正类的样本中，实际为正类的比例。公式为：</li>
-</ul>
-<p>Precision=TPTP+FP</p>
-</li>
-<li><p>**召回率 (Recall) 或 灵敏度 (Sensitivity)**：</p>
-<ul>
-<li>召回率表示在所有实际为正类的样本中，正确预测为正类的比例。公式为：</li>
-</ul>
-<p>Recall=TPTP+FN</p>
-</li>
-<li><p>**F1 分数 (F1 Score)**：</p>
-<ul>
-<li>F1 分数是精确率和召回率的调和平均值，用于权衡两者之间。公式为：</li>
-</ul>
-<p>F1=2×Precision×RecallPrecision+Recall</p>
-</li>
-<li><p>**特异度 (Specificity)**：</p>
-<ul>
-<li>特异度表示在所有实际为负类的样本中，正确预测为负类的比例。公式为：</li>
-</ul>
-<p>Specificity=TNTN+FP</p>
-</li>
-</ol>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>混淆矩阵帮助我们直观地评估分类模型的表现，特别是通过以上公式，可以评估模型的各个方面，如正确率、精确率、召回率等。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">John Doe</span>
-  </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-</body>
-</html>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/10/">
+          <span class="card-archive-list-date">October 2024</span>
+          <span class="card-archive-list-count">5</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/06/">
+          <span class="card-archive-list-date">June 2024</span>
+          <span class="card-archive-list-count">39</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2023/12/">
+          <span class="card-archive-list-date">December 2023</span>
+          <span class="card-archive-list-count">4</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2020/10/">
+          <span class="card-archive-list-date">October 2020</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2020/03/">
+          <span class="card-archive-list-date">March 2020</span>
+          <span class="card-archive-list-count">11</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">67</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-11-17T06:39:33.232Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Simon Gao</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
