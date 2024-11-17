@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在 SOLID 原则中，D 代表 依赖倒置原则（Dependency Inversion Principle, DIP）。这个原则的核心思想是，高层模块不应该依赖于低层模块，二者都应该依赖于抽象；抽象不应该依赖于具体实现，具体实现应该依赖于抽象。 依赖倒置原则的核心概念依赖倒置原则的目标是为了降低模块之间的耦合度，使得代码更加灵活和易于扩展。它提出了两条关键规则：  高层模块不应该依赖低层模块，二">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dependency Inversion Principle, DIP">
+<meta property="og:url" content="http://example.com/2024/11/07/dependency-inversion-principle-dip/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在 SOLID 原则中，D 代表 依赖倒置原则（Dependency Inversion Principle, DIP）。这个原则的核心思想是，高层模块不应该依赖于低层模块，二者都应该依赖于抽象；抽象不应该依赖于具体实现，具体实现应该依赖于抽象。 依赖倒置原则的核心概念依赖倒置原则的目标是为了降低模块之间的耦合度，使得代码更加灵活和易于扩展。它提出了两条关键规则：  高层模块不应该依赖低层模块，二">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-08T00:31:02.000Z">
+<meta property="article:modified_time" content="2024-11-17T03:12:33.005Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/11/07/dependency-inversion-principle-dip/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":"","permalink":"http://example.com/2024/11/07/dependency-inversion-principle-dip/","path":"2024/11/07/dependency-inversion-principle-dip/","title":"Dependency Inversion Principle, DIP"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Dependency Inversion Principle, DIP | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">依赖倒置原则的核心概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">依赖倒置原则的目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">依赖倒置原则的示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E8%AE%BE%E8%AE%A1%E4%BB%A5%E9%81%B5%E5%BE%AA%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99"><span class="nav-number">4.</span> <span class="nav-text">改进设计以遵循依赖倒置原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">依赖倒置原则的实际应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">6.</span> <span class="nav-text">使用依赖倒置原则的好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/07/dependency-inversion-principle-dip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Dependency Inversion Principle, DIP | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Dependency Inversion Principle, DIP
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-07 19:31:02" itemprop="dateCreated datePublished" datetime="2024-11-07T19:31:02-05:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-16 22:12:33" itemprop="dateModified" datetime="2024-11-16T22:12:33-05:00">2024-11-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>在 SOLID 原则中，<strong>D</strong> 代表 <strong>依赖倒置原则（Dependency Inversion Principle, DIP）</strong>。这个原则的核心思想是，<strong>高层模块不应该依赖于低层模块，二者都应该依赖于抽象；抽象不应该依赖于具体实现，具体实现应该依赖于抽象</strong>。</p>
+<h3 id="依赖倒置原则的核心概念"><a href="#依赖倒置原则的核心概念" class="headerlink" title="依赖倒置原则的核心概念"></a>依赖倒置原则的核心概念</h3><p>依赖倒置原则的目标是为了降低模块之间的耦合度，使得代码更加灵活和易于扩展。它提出了两条关键规则：</p>
+<ol>
+<li><p><strong>高层模块不应该依赖低层模块，二者都应该依赖于抽象</strong>：在软件设计中，高层模块往往是业务逻辑层，它是整个系统的核心。低层模块则是实现细节，如数据库、网络等。依赖倒置原则要求高层模块和低层模块都应该依赖于抽象（如接口或抽象类），而不是直接依赖于具体实现。</p>
+</li>
+<li><p><strong>抽象不应该依赖于细节，细节应该依赖于抽象</strong>：换句话说，接口和抽象类应该定义通用的行为，具体实现则依赖于这些抽象，而不是让抽象去依赖实现细节。</p>
+</li>
+</ol>
+<h3 id="依赖倒置原则的目的"><a href="#依赖倒置原则的目的" class="headerlink" title="依赖倒置原则的目的"></a>依赖倒置原则的目的</h3><ul>
+<li><strong>减少模块之间的耦合</strong>：模块之间的依赖会降低系统的灵活性，增加代码的维护成本。通过依赖抽象而不是依赖具体类，可以降低模块之间的耦合。</li>
+<li><strong>增加代码的可扩展性</strong>：如果模块之间依赖于接口或抽象类，新增或替换实现类时对原有模块的影响较小，方便扩展和维护。</li>
+<li><strong>提升测试的便利性</strong>：依赖倒置原则使得代码更容易进行单元测试。高层模块和低层模块之间的依赖是通过接口实现的，因此可以轻松地替换具体的实现类为模拟类或假数据。</li>
+</ul>
+<h3 id="依赖倒置原则的示例"><a href="#依赖倒置原则的示例" class="headerlink" title="依赖倒置原则的示例"></a>依赖倒置原则的示例</h3><p>假设我们正在开发一个邮件发送系统，其中 <code>EmailSender</code> 类用于发送邮件，而 <code>Notification</code> 类用于调用 <code>EmailSender</code> 发送通知。如果不遵循依赖倒置原则，设计可能如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 低层模块，负责发送邮件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmailSender</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendEmail</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Sending email: &quot;</span> + message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 高层模块，负责通知</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Notification</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> EmailSender emailSender;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Notification</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.emailSender = <span class="keyword">new</span> <span class="title class_">EmailSender</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">send</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        emailSender.sendEmail(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个设计中，<code>Notification</code> 类依赖于 <code>EmailSender</code> 的具体实现。这样一来，如果以后想要将邮件发送方式替换为短信（SMS）或其他方式，就需要修改 <code>Notification</code> 类的代码，从而破坏了模块的封装性。</p>
+<h3 id="改进设计以遵循依赖倒置原则"><a href="#改进设计以遵循依赖倒置原则" class="headerlink" title="改进设计以遵循依赖倒置原则"></a>改进设计以遵循依赖倒置原则</h3><p>为了遵循依赖倒置原则，我们可以将 <code>EmailSender</code> 抽象为一个接口，让 <code>Notification</code> 依赖于该接口，而不是具体实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抽象的发送器接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MessageSender</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">sendMessage</span><span class="params">(String message)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体的邮件发送器实现</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EmailSender</span> <span class="keyword">implements</span> <span class="title class_">MessageSender</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendMessage</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Sending email: &quot;</span> + message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 高层模块，负责通知</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Notification</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> MessageSender messageSender;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过构造函数注入依赖</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Notification</span><span class="params">(MessageSender messageSender)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.messageSender = messageSender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">send</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        messageSender.sendMessage(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个改进后的设计中：</p>
+<ul>
+<li>我们创建了一个 <code>MessageSender</code> 接口，<code>EmailSender</code> 实现了该接口。</li>
+<li><code>Notification</code> 类现在依赖于 <code>MessageSender</code> 接口，而不是 <code>EmailSender</code> 的具体实现。</li>
+<li><code>MessageSender</code> 是一个抽象，这样 <code>Notification</code> 和 <code>EmailSender</code> 之间的依赖关系被解耦了。</li>
+</ul>
+<p>现在，如果想要添加新的发送方式，比如短信发送，只需添加一个新的 <code>SmsSender</code> 类实现 <code>MessageSender</code> 接口，而无需修改 <code>Notification</code> 类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新的短信发送器实现</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SmsSender</span> <span class="keyword">implements</span> <span class="title class_">MessageSender</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendMessage</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Sending SMS: &quot;</span> + message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="依赖倒置原则的实际应用"><a href="#依赖倒置原则的实际应用" class="headerlink" title="依赖倒置原则的实际应用"></a>依赖倒置原则的实际应用</h3><p>依赖倒置原则通常通过 <strong>依赖注入</strong> 来实现。依赖注入是一种设计模式，能够将接口的实现注入到类中，从而实现依赖的倒置。依赖注入主要有三种方式：</p>
+<ol>
+<li><strong>构造函数注入</strong>：通过构造函数传递依赖（如上例中的 <code>Notification</code>）。</li>
+<li><strong>Setter 方法注入</strong>：通过 Setter 方法传递依赖。</li>
+<li><strong>接口注入</strong>：通过接口方法传递依赖（较少使用）。</li>
+</ol>
+<h3 id="使用依赖倒置原则的好处"><a href="#使用依赖倒置原则的好处" class="headerlink" title="使用依赖倒置原则的好处"></a>使用依赖倒置原则的好处</h3><ul>
+<li><strong>解耦代码，提高灵活性</strong>：高层模块和低层模块都依赖抽象，减少了类与类之间的依赖关系。</li>
+<li><strong>增强扩展性</strong>：高层模块可以接入不同的低层模块，而不必修改自身代码。</li>
+<li><strong>提高可测试性</strong>：由于高层模块依赖于接口，可以更轻松地替换为模拟实现，以便进行单元测试。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>依赖倒置原则通过要求高层模块和低层模块都依赖抽象，而非具体实现，来减少代码的耦合性，使代码更加灵活、易于扩展、便于测试。在实际开发中，依赖倒置原则是实现松耦合设计的关键之一，也是构建稳定系统结构的基础。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/11/07/interface-segregation-principle-isp/" rel="prev" title="Interface Segregation Principle, ISP">
+                  <i class="fa fa-angle-left"></i> Interface Segregation Principle, ISP
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/11/12/jin-yongs-philosophy/" rel="next" title="Jin Yong’s philosophy">
+                  Jin Yong’s philosophy <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

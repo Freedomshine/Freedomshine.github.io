@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Supervised Learning: Regression 和 Unsupervised Learning 的主要区别在于数据是否有标签以及任务目标不同。 1. Supervised Learning: Regression（监督学习：回归）监督学习中的回归是指算法从带有标签的数据中学习，目标是预测连续的数值输出。例如，给定一些输入数据，系统需要预测一个连续的值，如房价、温度、收入等。  数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Supervised Learning和Unsupervised">
+<meta property="og:url" content="http://example.com/2024/10/22/supervised-learning%E5%92%8Cunsupervised/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Supervised Learning: Regression 和 Unsupervised Learning 的主要区别在于数据是否有标签以及任务目标不同。 1. Supervised Learning: Regression（监督学习：回归）监督学习中的回归是指算法从带有标签的数据中学习，目标是预测连续的数值输出。例如，给定一些输入数据，系统需要预测一个连续的值，如房价、温度、收入等。  数据">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-22T23:46:36.000Z">
+<meta property="article:modified_time" content="2024-11-17T03:12:32.999Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/10/22/supervised-learning%E5%92%8Cunsupervised/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":"","permalink":"http://example.com/2024/10/22/supervised-learning%E5%92%8Cunsupervised/","path":"2024/10/22/supervised-learning和unsupervised/","title":"Supervised Learning和Unsupervised"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Supervised Learning和Unsupervised | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Supervised-Learning-Regression%EF%BC%88%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%EF%BC%9A%E5%9B%9E%E5%BD%92%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">1. Supervised Learning: Regression（监督学习：回归）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Unsupervised-Learning%EF%BC%88%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">2. Unsupervised Learning（无监督学习）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">关键区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/22/supervised-learning%E5%92%8Cunsupervised/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Supervised Learning和Unsupervised | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Supervised Learning和Unsupervised
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-10-22 19:46:36" itemprop="dateCreated datePublished" datetime="2024-10-22T19:46:36-04:00">2024-10-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-16 22:12:32" itemprop="dateModified" datetime="2024-11-16T22:12:32-05:00">2024-11-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><strong>Supervised Learning: Regression</strong> 和 <strong>Unsupervised Learning</strong> 的主要区别在于数据是否有标签以及任务目标不同。</p>
+<h3 id="1-Supervised-Learning-Regression（监督学习：回归）"><a href="#1-Supervised-Learning-Regression（监督学习：回归）" class="headerlink" title="1. Supervised Learning: Regression（监督学习：回归）"></a>1. <strong>Supervised Learning: Regression（监督学习：回归）</strong></h3><p><strong>监督学习</strong>中的回归是指算法从<strong>带有标签的数据</strong>中学习，目标是预测<strong>连续的数值</strong>输出。例如，给定一些输入数据，系统需要预测一个连续的值，如房价、温度、收入等。</p>
+<ul>
+<li><p><strong>数据特点</strong>：在回归问题中，训练数据集包含输入特征（features）和对应的已知目标值（标签）。</p>
+<ul>
+<li>例如，房价预测问题中，输入特征可能是房子的面积、房间数量、位置等，目标值是房子的价格。</li>
+</ul>
+</li>
+<li><p><strong>任务目标</strong>：回归任务的目标是建立一个模型，能够根据新的输入数据预测其对应的连续数值。</p>
+<ul>
+<li>举例：预测未来几天的股票价格或某个客户在未来的消费金额。</li>
+</ul>
+</li>
+<li><p><strong>常用算法</strong>：</p>
+<ul>
+<li>线性回归（Linear Regression）</li>
+<li>多项式回归（Polynomial Regression）</li>
+<li>支持向量回归（Support Vector Regression, SVR）</li>
+</ul>
+</li>
+<li><p><strong>示例</strong>：</p>
+<ul>
+<li>预测汽车的油耗（数值型输出）</li>
+<li>根据过去的天气数据预测未来的温度</li>
+</ul>
+</li>
+<li><p><strong>输入与输出</strong>：</p>
+<ul>
+<li>输入：多维特征（例如，年龄、身高等）</li>
+<li>输出：连续的数值（例如，价格、时间等）</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-Unsupervised-Learning（无监督学习）"><a href="#2-Unsupervised-Learning（无监督学习）" class="headerlink" title="2. Unsupervised Learning（无监督学习）"></a>2. <strong>Unsupervised Learning（无监督学习）</strong></h3><p><strong>无监督学习</strong>的特点是使用<strong>无标签的数据</strong>，目标是发现数据中的隐藏模式或结构。没有明确的输出目标值，算法需要自己寻找数据的模式或群组。</p>
+<ul>
+<li><p><strong>数据特点</strong>：无监督学习的数据没有标签，也就是说数据集中只有输入特征，没有与之对应的目标值。算法需要自己找到数据的结构、模式或关系。</p>
+<ul>
+<li>例如，在客户数据中，没有给出客户是否是高消费客户，算法需要自动找出不同类型的客户。</li>
+</ul>
+</li>
+<li><p><strong>任务目标</strong>：无监督学习通常用于发现数据中的群组、关联或异常点。它主要用于<strong>聚类</strong>、<strong>降维</strong>或<strong>异常检测</strong>任务。</p>
+<ul>
+<li>举例：在客户数据中发现相似客户的群组，或者在银行交易数据中检测异常的交易行为。</li>
+</ul>
+</li>
+<li><p><strong>常用算法</strong>：</p>
+<ul>
+<li>聚类算法（Clustering）：如 K-Means、层次聚类（Hierarchical Clustering）</li>
+<li>主成分分析（Principal Component Analysis, PCA）：用于降维</li>
+<li>密度估计（Density Estimation）</li>
+<li>异常检测（Outlier Detection）</li>
+</ul>
+</li>
+<li><p><strong>示例</strong>：</p>
+<ul>
+<li>对客户进行聚类分析，找出具有相似购买行为的客户群体。</li>
+<li>在网络流量数据中检测异常流量（如潜在的网络攻击）。</li>
+</ul>
+</li>
+<li><p><strong>输入与输出</strong>：</p>
+<ul>
+<li>输入：多维特征（例如，客户的年龄、消费习惯等）</li>
+<li>输出：数据的模式、群组或异常点（例如，将客户分为不同的群组）</li>
+</ul>
+</li>
+</ul>
+<h3 id="关键区别："><a href="#关键区别：" class="headerlink" title="关键区别："></a><strong>关键区别</strong>：</h3><p><strong>特点</strong></p>
+<p><strong>Supervised Learning: Regression</strong></p>
+<p><strong>Unsupervised Learning</strong></p>
+<p><strong>数据标签</strong></p>
+<p>有标签数据，输入数据与目标值一一对应</p>
+<p>无标签数据，只有输入特征，没有目标值</p>
+<p><strong>任务目标</strong></p>
+<p>预测连续的数值，例如价格、时间等</p>
+<p>发现数据中的隐藏模式、群组或异常点</p>
+<p><strong>常见任务</strong></p>
+<p>预测问题，如房价预测、温度预测</p>
+<p>聚类、降维、异常检测等</p>
+<p><strong>常用算法</strong></p>
+<p>线性回归、多项式回归、支持向量回归等</p>
+<p>K-Means、层次聚类、主成分分析等</p>
+<p><strong>输出类型</strong></p>
+<p>连续数值</p>
+<p>数据结构（群组、降维后的特征）</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><strong>总结</strong>：</h3><ul>
+<li><strong>监督学习：回归</strong> 是通过学习有标签的输入输出数据来预测连续的数值。</li>
+<li><strong>无监督学习</strong> 是在没有目标值的情况下，通过算法来识别数据中的模式和结构，例如聚类或异常检测。</li>
+</ul>
+<p>希望这些解释能帮助你更好地理解这两者的区别！如果需要更详细的解释，欢迎继续提问。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/10/21/%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5/" rel="prev" title="混淆矩阵">
+                  <i class="fa fa-angle-left"></i> 混淆矩阵
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/11/07/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8Cweb%E7%9A%84%E6%9D%83%E9%99%90/" rel="next" title="客户端和web的权限">
+                  客户端和web的权限 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
