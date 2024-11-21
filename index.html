@@ -1,202 +1,319 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Mingyang Gao - Welcome</title><meta name="author" content="Mingyang Gao"><meta name="copyright" content="Mingyang Gao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="I hope you can learn something">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mingyang Gao">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Mingyang Gao">
-<meta property="og:description" content="I hope you can learn something">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
-<meta property="article:author" content="Mingyang Gao">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
-    (() => {
-      
-    const saveToLocal = {
-      set: (key, value, ttl) => {
-        if (!ttl) return
-        const expiry = Date.now() + ttl * 86400000
-        localStorage.setItem(key, JSON.stringify({ value, expiry }))
-      },
-      get: key => {
-        const itemStr = localStorage.getItem(key)
-        if (!itemStr) return undefined
-        const { value, expiry } = JSON.parse(itemStr)
-        if (Date.now() > expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return value
-      }
-    }
+<!DOCTYPE html>
+<html>
 
-    window.btf = {
-      saveToLocal,
-      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
-        script.onload = script.onreadystatechange = () => {
-          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
-        }
-        script.onerror = reject
-        document.head.appendChild(script)
-      }),
-      getCSS: (url, id) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onload = link.onreadystatechange = () => {
-          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
-        }
-        link.onerror = reject
-        document.head.appendChild(link)
-      }),
-      addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!false && key.startsWith('pjax')) return
-        const globalFn = parent.globalFn || {}
-        globalFn[key] = globalFn[key] || {}
-        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
-        parent.globalFn = globalFn
-      }
-    }
-  
-      
-      const activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      const activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mingyang's Page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <link rel="stylesheet" href="cv/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,800&amp;display=swap">
+    <link rel="stylesheet" href="cv/css/style.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="cv/css/custom.css">
+    <link rel="shortcut icon" href="cv/img/favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
 
-      btf.activateDarkMode = activateDarkMode
-      btf.activateLightMode = activateLightMode
-
-      const theme = saveToLocal.get('theme')
-    
-          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
-        
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
-      }
-    
-      
-    const detectApple = () => {
-      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-  
-    })()
-  </script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
-  copy: {
-    success: 'Copy Successful',
-    error: 'Copy Failed',
-    noSupport: 'Browser Not Supported'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: 'Just now',
-    min: 'minutes ago',
-    hour: 'hours ago',
-    day: 'days ago',
-    month: 'months ago'
-  },
-  copyright: undefined,
-  lightbox: 'null',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: 'Load More'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'Mingyang Gao',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  isShuoshuo: false
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/sunset.jpg);"></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Mingyang Gao</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">Mingyang Gao</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/11/15/how-should-we-see-north-koreans-in-biblical-perspective/" title="How should we see North Koreans in biblical perspective">How should we see North Koreans in biblical perspective</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-16T01:48:06.000Z" title="Created 2024-11-15 20:48:06">2024-11-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Belief/">Belief</a></span></div><div class="content">Viewing North Korea from a biblical perspective requires us to apply biblical principles of justice, compassion, hope, and the sovereignty of God to the unique situation of the nation. Here are some key themes to consider:  1. Recognizing the Image of God in Every Person Biblical Principle: “So God created man in his own image, in the image of God he created him; male and female he created them.” (Genesis 1:27, ESV)“于是神照着自己的形象造人，乃是照着他的形象造男造女。” (创世记 1:27, 新标点和合本)   Every North Korean,...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/11/12/jin-yongs-philosophy/" title="Jin Yong’s philosophy">Jin Yong’s philosophy</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-13T01:31:11.000Z" title="Created 2024-11-12 20:31:11">2024-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B8%AA%E4%BA%BA%E8%A7%81%E8%A7%A3/">个人见解</a></span></div><div class="content">Jin Yong’s works often feature characters who resist oppressive regimes, challenge corruption, and stand against unjust authority figures. This recurring theme reflects both the social and political climate of Hong Kong during his writing period, as well as Jin Yong’s personal values and philosophies. 1. The Political Climate of Hong KongJin Yong wrote his novels between the 1950s and 1970s, when Hong Kong was a British colony. The Chinese population in Hong Kong lived under British rule,...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/11/07/dependency-inversion-principle-dip/" title="Dependency Inversion Principle, DIP">Dependency Inversion Principle, DIP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-08T00:31:02.000Z" title="Created 2024-11-07 19:31:02">2024-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">在 SOLID 原则中，D 代表 依赖倒置原则（Dependency Inversion Principle,...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/11/07/interface-segregation-principle-isp/" title="Interface Segregation Principle, ISP">Interface Segregation Principle, ISP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-08T00:30:53.000Z" title="Created 2024-11-07 19:30:53">2024-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">在 SOLID 原则中，I 代表 接口隔离原则（Interface Segregation Principle, ISP）。这个原则强调接口设计的简洁性，避免在接口中添加过多的、不必要的方法，使得接口更加专注于特定的职责，以便让实现接口的类只需要关注其使用的特定功能。 接口隔离原则的核心思想接口隔离原则的核心思想是，应该为不同的客户端提供专用的接口，而不是强迫所有的客户端都依赖一个通用的接口。简单来说，接口应该小而精，并且专注于满足客户端的需求，而不是试图将所有方法都放在一个庞大的接口中。 原则要点 小接口比大接口好：接口不应包含太多方法。小的接口意味着接口更加专一，客户端不必依赖那些与它们无关的方法。  接口应该只包含客户端需要的方法：接口隔离原则主张使用多个小的接口，而不是一个庞大的通用接口，这样可以让实现接口的类只实现自己需要的功能，而不必实现不相关的方法。  避免接口污染（Fat Interface）：如果一个接口包含了过多的方法，那些不需要的客户端就会受到影响。这种接口被称为“臃肿的接口（Fat...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/11/07/dao/" title="DAO">DAO</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-08T00:30:09.000Z" title="Created 2024-11-07 19:30:09">2024-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">DAO（Data Access...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/11/07/jdbc%EF%BC%88java-database-connectivity%EF%BC%89/" title="JDBC（Java Database Connectivity）">JDBC（Java Database Connectivity）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-08T00:29:52.000Z" title="Created 2024-11-07 19:29:52">2024-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">JDBC（Java Database Connectivity） 是 Java 提供的一个用于访问和操作数据库的 API（应用程序编程接口），它使得 Java 程序可以与各种关系型数据库（如 MySQL、PostgreSQL、Oracle、SQL Server 等）进行交互。通过 JDBC，Java 应用程序可以执行 SQL 查询、更新数据库数据、调用存储过程、管理事务等。 JDBC 是 Java 标准库的一部分，它提供了一个通用接口，使得开发者能够以一种标准的方式连接数据库，无需关心底层数据库的具体实现细节。不同的数据库厂商（如 MySQL、Oracle）会为 JDBC 提供各自的驱动程序，Java 程序通过这些驱动程序与数据库进行交互。  JDBC 的核心组成JDBC 的架构由以下几个核心组件组成：  DriverManagerDriverManager 类负责管理不同的数据库驱动，Java 程序通过它来注册和连接数据库驱动。DriverManager 会根据提供的数据库 URL 找到合适的驱动来建立连接。  ConnectionConnection...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/11/07/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8Cweb%E7%9A%84%E6%9D%83%E9%99%90/" title="客户端和web的权限">客户端和web的权限</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-08T00:29:28.000Z" title="Created 2024-11-07 19:29:28">2024-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">是的，客户端应用通常确实会比 Web 端应用拥有更多的权限。以下是一些主要原因： 1. 系统资源的直接访问 客户端应用通常可以直接访问本地系统资源，例如文件系统、摄像头、麦克风、地理位置、蓝牙、USB 接口等。而 Web 端应用的权限通常受到浏览器的限制，尽管现代浏览器提供了部分接口（如 getUserMedia、Geolocation API），这些权限的范围和灵活性远不如客户端应用。  2. 本地存储 客户端应用可以使用各种本地存储技术（如文件系统、数据库、加密存储），并且可以在不受浏览器沙盒限制的情况下自由读写。而 Web 应用在本地存储方面，通常只能使用 localStorage、sessionStorage 或者 IndexedDB，并且受到浏览器的存储大小限制。  3. 后台运行 客户端应用通常可以在系统后台运行，甚至在关闭窗口或用户注销时继续执行任务。而 Web 应用在浏览器窗口关闭后就会被中止，即使有一些 PWA（渐进式 Web 应用）和 Web Workers 支持后台任务，其运行能力和系统整合性也有限。  4....</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/10/22/supervised-learning%E5%92%8Cunsupervised/" title="Supervised Learning和Unsupervised">Supervised Learning和Unsupervised</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-10-22T23:46:36.000Z" title="Created 2024-10-22 19:46:36">2024-10-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">Supervised Learning: Regression 和 Unsupervised Learning 的主要区别在于数据是否有标签以及任务目标不同。 1. Supervised Learning: Regression（监督学习：回归）监督学习中的回归是指算法从带有标签的数据中学习，目标是预测连续的数值输出。例如，给定一些输入数据，系统需要预测一个连续的值，如房价、温度、收入等。  数据特点：在回归问题中，训练数据集包含输入特征（features）和对应的已知目标值（标签）。  例如，房价预测问题中，输入特征可能是房子的面积、房间数量、位置等，目标值是房子的价格。   任务目标：回归任务的目标是建立一个模型，能够根据新的输入数据预测其对应的连续数值。  举例：预测未来几天的股票价格或某个客户在未来的消费金额。   常用算法：  线性回归（Linear Regression） 多项式回归（Polynomial Regression） 支持向量回归（Support Vector Regression,...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/10/21/%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5/" title="混淆矩阵">混淆矩阵</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-10-22T01:10:10.000Z" title="Created 2024-10-21 21:10:10">2024-10-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/">技术分享</a></span></div><div class="content">Confusion Matrix（混淆矩阵）是用于评价分类模型性能的一个工具，特别是当模型的输出是多个类时。它通过显示实际类与预测类的对比来描述模型的预测结果。混淆矩阵是一种矩阵，行表示实际类别，列表示预测类别。它能够帮助评估模型的正确分类和错误分类。 混淆矩阵的结构：通常，混淆矩阵应用于二分类问题，矩阵形式如下： 预测正类（Positive） 预测负类（Negative） 实际正类 真阳性（TP） 假阴性（FN） 实际负类 假阳性（FP） 真阴性（TN） 矩阵中的四个重要指标： **TP (True Positive)**：模型正确预测为正类的数量（预测为正，实际也是正）。 **TN (True Negative)**：模型正确预测为负类的数量（预测为负，实际也是负）。 **FP (False Positive)**：模型错误预测为正类的数量（预测为正，实际为负），即“假阳性”。 **FN (False Negative)**：模型错误预测为负类的数量（预测为负，实际为正），即“假阴性”。  常用评价指标公式： **准确率...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/10/17/%EF%BC%88why-nations-fail%EF%BC%89-2/" title="（Why Nations Fail）">（Why Nations Fail）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-10-17T23:29:36.000Z" title="Created 2024-10-17 19:29:36">2024-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%B8%AA%E4%BA%BA%E8%A7%81%E8%A7%A3/">个人见解</a></span></div><div class="content">《国家为何失败》  《国家为何失败》（_Why Nations Fail_）是由James Alan Robinson和达隆·阿西莫格鲁（Daron Acemoglu）合作撰写的一本深具影响力的书，首次出版于2012年。这本书试图回答一个贯穿历史和全球的根本问题：为什么有些国家能够繁荣发展，而另一些国家却长期陷入贫困和动荡？  核心理论：包容性制度 vs. 掠夺性制度书中的核心理论是**包容性制度（inclusive institutions）和掠夺性制度（extractive...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Mingyang Gao</div><div class="author-info-description">I hope you can learn something</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/15/how-should-we-see-north-koreans-in-biblical-perspective/" title="How should we see North Koreans in biblical perspective"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="How should we see North Koreans in biblical perspective"/></a><div class="content"><a class="title" href="/2024/11/15/how-should-we-see-north-koreans-in-biblical-perspective/" title="How should we see North Koreans in biblical perspective">How should we see North Koreans in biblical perspective</a><time datetime="2024-11-16T01:48:06.000Z" title="Created 2024-11-15 20:48:06">2024-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/12/jin-yongs-philosophy/" title="Jin Yong’s philosophy"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jin Yong’s philosophy"/></a><div class="content"><a class="title" href="/2024/11/12/jin-yongs-philosophy/" title="Jin Yong’s philosophy">Jin Yong’s philosophy</a><time datetime="2024-11-13T01:31:11.000Z" title="Created 2024-11-12 20:31:11">2024-11-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/07/dependency-inversion-principle-dip/" title="Dependency Inversion Principle, DIP"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Dependency Inversion Principle, DIP"/></a><div class="content"><a class="title" href="/2024/11/07/dependency-inversion-principle-dip/" title="Dependency Inversion Principle, DIP">Dependency Inversion Principle, DIP</a><time datetime="2024-11-08T00:31:02.000Z" title="Created 2024-11-07 19:31:02">2024-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/07/interface-segregation-principle-isp/" title="Interface Segregation Principle, ISP"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Interface Segregation Principle, ISP"/></a><div class="content"><a class="title" href="/2024/11/07/interface-segregation-principle-isp/" title="Interface Segregation Principle, ISP">Interface Segregation Principle, ISP</a><time datetime="2024-11-08T00:30:53.000Z" title="Created 2024-11-07 19:30:53">2024-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/07/dao/" title="DAO"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DAO"/></a><div class="content"><a class="title" href="/2024/11/07/dao/" title="DAO">DAO</a><time datetime="2024-11-08T00:30:09.000Z" title="Created 2024-11-07 19:30:09">2024-11-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>Categories</span>
-            
-          </div>
-          <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/"><span class="card-category-list-name">AI</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Belief/"><span class="card-category-list-name">Belief</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/English/"><span class="card-category-list-name">English</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/uncategorized/"><span class="card-category-list-name">uncategorized</span><span class="card-category-list-count">36</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B8%AA%E4%BA%BA%E8%A7%81%E8%A7%A3/"><span class="card-category-list-name">个人见解</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="card-category-list-name">技术分享</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A7%91%E6%8A%80/"><span class="card-category-list-name">科技</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E6%8A%80%E8%83%BD/"><span class="card-category-list-name">程序员技能</span><span class="card-category-list-count">1</span></a></li>
-          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/AI/" style="font-size: 1.1em; color: #999">AI</a></div></div><div class="card-widget card-archives">
-    <div class="item-headline">
-      <i class="fas fa-archive"></i>
-      <span>Archives</span>
-      
+<body>
+<!-- navbar-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <h4>Mingyang Gao</h4>
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link link-scroll active" href="#hero">Home <span
+                            class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a class="nav-link link-scroll" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link link-scroll" href="#expertise">Expertise</a></li>
+                    <li class="nav-item"><a class="nav-link link-scroll" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link link-scroll" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link link-scroll" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link link-scroll" href="index1.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- Hero Section-->
+<section class="hero bg-cover bg-center mt-5" id="hero"
+         style="background: url('cv/img/background.jpg');opacity: 0.78;">
+    <div class="container py-5 my-5 index-forward">
+        <div class="row">
+            <div class="col-md-8 text-white">
+                <h2 class="h4 text-primary font-weight-normal mb-0">Hi, I am</h2>
+                <h1 class="text-capitalize text-xl mb-0">Mingyang <span class="text-primary">Gao</span></h1>
+                <h3 class="h4 font-weight-normal mb-5">Software Engineer</h3>
+                <p class="text-shadow">I am a highly experienced engineer with a decade of development expertise.
+                    Over the past years, I had worked in Beijing and Guangzhou, China, and now I currently reside in Ottawa, ON, Canada.</p>
+            </div>
+        </div>
     </div>
-    <ul class="card-archive-list">
-  
-      <li class="card-archive-list-item">
-        <a class="card-archive-list-link" href="/archives/2024/11/">
-          <span class="card-archive-list-date">November 2024</span>
-          <span class="card-archive-list-count">7</span>
-        </a>
-      </li>
-    
-      <li class="card-archive-list-item">
-        <a class="card-archive-list-link" href="/archives/2024/10/">
-          <span class="card-archive-list-date">October 2024</span>
-          <span class="card-archive-list-count">5</span>
-        </a>
-      </li>
-    
-      <li class="card-archive-list-item">
-        <a class="card-archive-list-link" href="/archives/2024/06/">
-          <span class="card-archive-list-date">June 2024</span>
-          <span class="card-archive-list-count">39</span>
-        </a>
-      </li>
-    
-      <li class="card-archive-list-item">
-        <a class="card-archive-list-link" href="/archives/2023/12/">
-          <span class="card-archive-list-date">December 2023</span>
-          <span class="card-archive-list-count">4</span>
-        </a>
-      </li>
-    
-      <li class="card-archive-list-item">
-        <a class="card-archive-list-link" href="/archives/2020/10/">
-          <span class="card-archive-list-date">October 2020</span>
-          <span class="card-archive-list-count">1</span>
-        </a>
-      </li>
-    
-      <li class="card-archive-list-item">
-        <a class="card-archive-list-link" href="/archives/2020/03/">
-          <span class="card-archive-list-date">March 2020</span>
-          <span class="card-archive-list-count">11</span>
-        </a>
-      </li>
-    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">67</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-11-21T03:49:24.693Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Mingyang Gao</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</section>
+
+<!-- About Section -->
+<section class="bg-light" id="about">
+    <div class="container">
+        <header class="mb-5">
+            <p class="font-weight-bold text-primary text-uppercase letter-spacing-3">Accomplished Developer</p>
+            <h2 class="h3 lined">Strong Technical Skills, Extensive Experience</h2>
+        </header>
+        <p class="text-muted mb-0">I am currently a student in the Computer Programming program at Algonquin College,
+            eager to continue growing and developing in the field. While I have had the opportunity to contribute to
+            over 7 software products and successfully complete several live projects, I recognize that there is always
+            more to learn. I am familiar in version control, functional, performance, security, and automation testing,
+            and familiar with product development processes such as planning, requirements analysis, and interaction
+            design. With a solid foundation in front-end/back-end separation and experience across multiple platforms, I
+            enjoy tackling challenges and continuously improving. My goal is to be an active, positive contributor to
+            any team, sharing knowledge, resolving issues, and helping advance project progress while maintaining an
+            open mind to learning from others.
+            I am seeking a co-op opportunity to apply my skills in a dynamic Canadian tech environment.
+        </p>
+    </div>
+</section>
+
+<!-- Expertise Section  -->
+<section id="expertise">
+    <div class="container">
+        <header class="mb-5 pb-4">
+            <p class="font-weight-bold text-primary text-uppercase letter-spacing-3">Empowering Success at Every
+                Level.</p>
+            <h2 class="text-uppercase lined">Expertise</h2>
+        </header>
+        <div class="row">
+            <div class="col-md-6 mb-5">
+                <h3 class="h4"><span class="text-primary mr-2">01</span>Proficient Programming Skills</h3>
+                <p class="text-muted text-small ml-4 pl-3">As a seasoned programmer with 10 years of experience, I possess an extensive repertoire of programming languages, allowing me to craft sophisticated and efficient software solutions..</p>
+            </div>
+
+            <div class="col-md-6 mb-5">
+                <h3 class="h4"><span class="text-primary mr-2">02</span>Advanced Problem-Solving Abilities</h3>
+                <p class="text-muted text-small ml-4 pl-3">Throughout my career, I have sharpened my problem-solving skills, enabling me to tackle complex technical challenges with ease and devise innovative solutions.</p>
+            </div>
+
+            <div class="col-md-6 mb-5 mb-md-0">
+                <h3 class="h4"><span class="text-primary mr-2">03</span>Strong Analytical Skills</h3>
+                <p class="text-muted text-small ml-4 pl-3"> With a keen eye for detail and a knack for analysis, I excel at dissecting intricate problems, developing optimal algorithms, and making data-backed decisions.</p>
+            </div>
+            <div class="col-md-6">
+                <h3 class="h4"><span class="text-primary mr-2">04</span>Collaborative Team Player</h3>
+                <p class="text-muted text-small ml-4 pl-3">I am adept at working harmoniously in diverse teams, fostering open communication, and leveraging collective strengths to achieve shared goals.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section class="bg-light" id="experience">
+    <div class="container">
+        <header class="mb-5 pb-4">
+            <p class="font-weight-bold text-primary text-uppercase letter-spacing-3">Unleashing Potential for
+                Growth.</p>
+            <h2 class="text-uppercase lined">Experience</h2>
+        </header>
+        <!-- Timeline -->
+        <ul class="timeline">
+            <li class="timeline-item ml-3 pb-4">
+                <div class="timeline-arrow"></div>
+                <div class="row no-gutter">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <p class="font-weight-bold mb-2 text-primary text-small">2020 – 2022 </p>
+                        <h2 class="h5 mb-0 text-uppercase">Saibao Industrial Technology Research Institute Company</h2>
+                        <p class="text-small mb-0">Project Manager & Implementation Test Engineer</p><span
+                            class="small text-muted">Beijing, China</span>
+                    </div>
+                    <div class="col-lg-7">
+                        <p class="text-muted">
+                            <br>
+                        <p><strong>Responsibilities:</strong></p>
+                        <ul style="list-style-type: disc;">
+                            <li>Collaborated with cross-functional teams to deliver projects on schedule</li>
+                            <li>Used hardware testing tools, operating systems, databases, and system performance testing tools</li>
+                            <li>Experienced with over 20 types of testing tools such as Lmbench, Stream, Iozone, and Unixbench</li>
+                            <li>Conducted functional testing, performance testing, reliability testing, and security testing</li>
+                            <li>Utilized Linux systems and related commands</li>
+                            <li>Managed version control using Git, SVN</li>
+                            <li>Created and maintained test documentation</li>
+                            <li>Adjusted, self-tested, debugged, and provided business support during development phase</li>
+                            <li>Communicated effectively with various teams to ensure smooth project delivery</li>
+                        </ul>
+
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="timeline-item ml-3 pb-4">
+                <div class="timeline-arrow"></div>
+                <div class="row no-gutter">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <p class="font-weight-bold mb-2 text-primary text-small">2019 – 2020 </p>
+                        <h2 class="h5 mb-0 text-uppercase">Recruitment United Information Company</h2>
+                        <p class="text-small mb-0">Backend Development Engineer</p><span
+                            class="small text-muted">Beijing, China</span>
+                    </div>
+                    <div class="col-lg-7">
+                        <p class="text-muted">
+                            <ul style="list-style-type: disc;">
+                                <li>Developed software using Java, C, and C#</li>
+                                <li>Participated in project requirements analysis, functional analysis, and project scheduling</li>
+                                <li>Integrated frameworks such as Springboot, SpringMVC, Spring, MyBatis</li>
+                                <li>Managed databases including MySQL and Oracle</li>
+                                <li>Implemented version control with Git, GitHub, SVN</li>
+                                <li>Designed, developed, and maintained backend systems</li>
+                                <li>Provided professional and business support, coordinated with various departments, and ensured timely delivery of development phases</li>
+                                <li>Involved in design, development, and testing of interface integration</li>
+                            </ul>
+
+                        </p>
+                    </div>
+
+            </div>
+            </li>
+
+            <li class="timeline-item ml-3 pb-4">
+                <div class="timeline-arrow"></div>
+                <div class="row no-gutter">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <p class="font-weight-bold mb-2 text-primary text-small">2017 – 2019</p>
+                        <h2 class="h5 mb-0 text-uppercase">Economic Information Net</h2>
+                        <p class="text-small mb-0">Development Engineer</p><span
+                            class="small text-muted">Beijing, China</span>
+                    </div>
+                    <div class="col-lg-7">
+                        <p class="text-muted">
+                            <br>
+                            <p><strong>Responsibilities:</strong></p>
+                                <ul style="list-style-type: disc;">
+                                    <li>Skilled in using Springboot, SpringMVC, Spring, and MyBatis frameworks</li>
+                                    <li>Managed databases such as MySQL, Oracle</li>
+                                    <li>Developed and maintained backend systems, improving system response times by 50%</li>
+                                    <li>Utilized Linux systems and related commands</li>
+                                    <li>Implemented version control with Git, GitHub, SVN</li>
+                                    <li>Conducted technical selection, built databases, and project frameworks</li>
+                                    <li>Designed and maintained APIs and backend services</li>
+                                </ul>
+                        </p>
+                    </div>
+
+            </div>
+            </li>
+
+
+        </ul>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education">
+    <div class="container">
+        <header class="mb-5 pb-4">
+            <p class="font-weight-bold text-primary text-uppercase letter-spacing-3">Learn, Elevate.</p>
+            <h2 class="text-uppercase lined">Education</h2>
+        </header>
+        <div class="row no-gutter">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <h2 class="h5 mb-0 text-uppercase">Algonquin College</h2>
+                <p class="text-small mb-0">Diploma in Computer Programming </p>
+                <span class="small text-muted">Handan, China</span>
+            </div>
+            <div class="col-lg-7">
+                <p class="text-muted">
+                    Acquired comprehensive knowledge and skills in software development.
+                    Gained expertise in programming languages, software engineering principles, and development
+                    methodologies.
+                </p>
+            </div>
+        </div>
+        <div class="row no-gutter">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <h2 class="h5 mb-0 text-uppercase">Handan University</h2>
+                <p class="text-small mb-0">Bachelor of Electronic and Information Engineering</p>
+                <span class="small text-muted">Handan, China</span>
+            </div>
+            <div class="col-lg-7">
+                <p class="text-muted">
+                    Acquired comprehensive knowledge and skills in software development.
+                    Gained expertise in programming languages, software engineering principles, and development
+                    methodologies.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="bg-light" id="contact">
+    <div class="container">
+        <header class="mb-5 pb-4">
+            <p class="font-weight-bold text-primary text-uppercase letter-spacing-3">Reach me, maybe.</p>
+            <h2 class="text-uppercase lined">Contact</h2>
+        </header>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <a class="px-4 py-5 text-center contact-item shadow-sm d-block reset-anchor"
+                   href="mailto:freedomsunshineyang@gmail.com">
+                    <i class="fas fa-envelope fa-2x mb-4"></i>
+                    <h4 class="contact-item-title h5 text-uppercase">Email</h4>
+                    <p class="text-small mb-0">freedomsunshineyang@gmail.com</p>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <a class="px-4 py-5 text-center contact-item shadow-sm d-block reset-anchor"
+                   href="https://github.com/Freedomshine">
+                    <i class="fab fa-github fa-2x mb-4"></i>
+                    <h4 class="contact-item-title h5 text-uppercase">Github</h4>
+                    <p class="text-small mb-0">freedomsunshineyang@gmail.com</p>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <a class="px-4 py-5 text-center contact-item shadow-sm d-block reset-anchor"
+                   href="https://freedyang.com">
+                    <i class="fas fa-globe fa-2x mb-4"></i>
+                    <h4 class="contact-item-title h5 text-uppercase">WEB</h4>
+                    <p class="text-small mb-0">https://freedyang.com/</p>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <a class="px-4 py-5 text-center contact-item shadow-sm d-block reset-anchor"
+                   href="https://www.facebook.com/profile.php?id=61554140157607">
+                    <i class="fab fa-facebook-f fa-2x mb-4"></i>
+                    <h4 class="contact-item-title h5 text-uppercase">Facebook</h4>
+                    <p class="text-small mb-0"></p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="copyrights px-4">
+        <div class="container py-4 border-top text-center">
+            <p class="mb-0 text-muted py-2">Copyright &copy; 2024 Mingyang Gao</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript files-->
+<script src="cv/vendor/jquery/jquery.min.js"></script>
+<script src="cv/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="cv/js/front.js"></script>
+<!-- FontAwesome CSS -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</body>
+
+</html>
