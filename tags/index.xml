@@ -7,20 +7,76 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Simon Gao</copyright>
-        <lastBuildDate>Sat, 08 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://git.freegmy.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Tag1</title>
-        <link>http://git.freegmy.com/tags/tag1/</link>
-        <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
+        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://git.freegmy.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Css</title>
+        <link>http://git.freegmy.com/tags/css/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://git.freegmy.com/tags/tag1/</guid>
+        <guid>http://git.freegmy.com/tags/css/</guid>
         <description></description>
         </item>
         <item>
-        <title>Tag2</title>
-        <link>http://git.freegmy.com/tags/tag2/</link>
-        <pubDate>Sat, 08 Mar 2025 00:00:00 +0000</pubDate>
+        <title>Html</title>
+        <link>http://git.freegmy.com/tags/html/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://git.freegmy.com/tags/tag2/</guid>
+        <guid>http://git.freegmy.com/tags/html/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Markdown</title>
+        <link>http://git.freegmy.com/tags/markdown/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://git.freegmy.com/tags/markdown/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Themes</title>
+        <link>http://git.freegmy.com/tags/themes/</link>
+        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://git.freegmy.com/tags/themes/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Privacy</title>
+        <link>http://git.freegmy.com/tags/privacy/</link>
+        <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://git.freegmy.com/tags/privacy/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Shortcodes</title>
+        <link>http://git.freegmy.com/tags/shortcodes/</link>
+        <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://git.freegmy.com/tags/shortcodes/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Tag With Whitespaces</title>
+        <link>http://git.freegmy.com/tags/tag-with-whitespaces/</link>
+        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://git.freegmy.com/tags/tag-with-whitespaces/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Text</title>
+        <link>http://git.freegmy.com/tags/text/</link>
+        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://git.freegmy.com/tags/text/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Emoji</title>
+        <link>http://git.freegmy.com/tags/emoji/</link>
+        <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://git.freegmy.com/tags/emoji/</guid>
         <description></description>
         </item>
         
