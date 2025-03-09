@@ -12,7 +12,22 @@
     <lastmod>2025-03-08T17:42:38-05:00</lastmod>
   </url><url>
     <loc>http://git.freegmy.com/categories/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://git.freegmy.com/p/my-note-title/</loc>
+    <lastmod>2025-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://git.freegmy.com/tags/tag1/</loc>
+    <lastmod>2025-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://git.freegmy.com/tags/tag2/</loc>
+    <lastmod>2025-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://git.freegmy.com/tags/</loc>
+    <lastmod>2025-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://git.freegmy.com/categories/%E4%BF%A1%E4%BB%B0/</loc>
+    <lastmod>2025-03-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://git.freegmy.com/p/test-chinese/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
@@ -43,7 +58,5 @@
     <loc>http://git.freegmy.com/links/</loc>
   </url><url>
     <loc>http://git.freegmy.com/search/</loc>
-  </url><url>
-    <loc>http://git.freegmy.com/tags/</loc>
   </url>
 </urlset>
