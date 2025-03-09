@@ -6,24 +6,7 @@
         <description>Recent content in Categories on 五饼二鱼</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <copyright>Simon Gao</copyright>
-        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://git.freegmy.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Syntax</title>
-        <link>http://git.freegmy.com/categories/syntax/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>http://git.freegmy.com/categories/syntax/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Themes</title>
-        <link>http://git.freegmy.com/categories/themes/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>http://git.freegmy.com/categories/themes/</guid>
-        <description></description>
-        </item>
-        <item>
+        <copyright>Simon Gao</copyright><atom:link href="http://git.freegmy.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Test</title>
         <link>http://git.freegmy.com/categories/test/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

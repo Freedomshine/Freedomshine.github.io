@@ -14,31 +14,7 @@
     <loc>http://git.freegmy.com/p/11111111/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://git.freegmy.com/categories/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://git.freegmy.com/tags/css/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://git.freegmy.com/tags/html/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://git.freegmy.com/tags/markdown/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://git.freegmy.com/post/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://git.freegmy.com/categories/syntax/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://git.freegmy.com/tags/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://git.freegmy.com/categories/themes/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://git.freegmy.com/tags/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://git.freegmy.com/about/</loc>
@@ -46,10 +22,16 @@
   </url><url>
     <loc>http://git.freegmy.com/_index.zh-cn/</loc>
   </url><url>
+    <loc>http://git.freegmy.com/categories/</loc>
+  </url><url>
     <loc>http://git.freegmy.com/links/</loc>
   </url><url>
     <loc>http://git.freegmy.com/search/</loc>
   </url><url>
+    <loc>http://git.freegmy.com/tags/</loc>
+  </url><url>
     <loc>http://git.freegmy.com/categories/test/</loc>
+  </url><url>
+    <loc>http://git.freegmy.com/p/video222222222222222222222/</loc>
   </url>
 </urlset>
